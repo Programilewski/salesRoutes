@@ -1,0 +1,12 @@
+@use "../utils";
+.mainNavigation
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding:1.5rem;
+    background-color: #101218;
+    min-width: utils.$navWidth;
+    height: 100%;
+}

@@ -1,0 +1,44 @@
+.inputSearch
+{
+    position: relative;
+    box-sizing: border-box;
+    border: 1px solid rgb(45, 45, 45);
+    &__header
+    {
+        width: 100%;
+        box-sizing: border-box;
+        padding:.5rem;
+        background-color: black;
+        border:1px solid black;
+        color:white;
+        &::placeholder
+        {
+            font-weight: 700;
+        }
+        &:focus
+        {
+            border:none;
+            border-radius: 0;
+            border:1px solid rgb(15, 65, 216);
+            box-sizing: border-box;
+            outline: none;
+        }
+    }
+    &__list
+    {
+    z-index: 9999;
+    left: 0;
+    position: absolute;
+    background-color: white;
+    color:black;
+    font-size: 14px;
+    max-height: 10rem;
+    overflow-y: scroll;
+    width: 100%;
+    box-sizing: border-box;
+    & li
+    {
+        padding:1rem .25rem;
+    }
+    }
+}

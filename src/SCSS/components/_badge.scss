@@ -1,0 +1,14 @@
+.badge
+{
+    position: absolute;
+    bottom:2rem;
+    right: 2rem;
+    z-index: 999;
+    background-color: white;
+    color:black;
+    padding:1rem 3rem 1rem 1rem;
+    gap:1rem;
+    border-radius: 1rem;
+    border-left: 2px solid white;
+    box-shadow: -3px 6px 7px 2px #0000005c;
+}
