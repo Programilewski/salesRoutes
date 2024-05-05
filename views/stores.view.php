@@ -90,7 +90,7 @@
                 <li class="table__cell">Dł. Geogr.</li>
                 <li class="table__cell">Operacje</li>
             </ul>
-            <div class="table__body">
+            <div class="table__body" id="storesTable">
                 <ul class="table__row">
                     <li class="table__cell">1</li>
                     <li class="table__cell">M-Optyk Ośrodek Korekcji Wzroku</li>
@@ -464,7 +464,6 @@
             </div>
         </div>
     </main>
-
     <script src="dist/JS/app.js" defer></script>
 </body>
 

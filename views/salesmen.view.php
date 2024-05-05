@@ -24,6 +24,8 @@
                 </svg>
                 <h3 class="captionedIcon__title">Handlowcy</h3>
             </div>
+            <input type="button" class="button button--default button--medium" value="Dodaj">
+
         </div>
         <div class="links">
             <a href="/" class="links__item">

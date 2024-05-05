@@ -22,7 +22,7 @@
                 <svg class="captionedIcon__icon" xmlns="http://www.w3.org/2000/svg" fill="#ffffff" height="24" viewBox="0 -960 960 960" width="24">
                     <path d="M824.153-520.269v315.538q0 28.437-19.916 48.353-19.915 19.916-48.353 19.916H204.539q-28.438 0-48.353-19.916-19.916-19.916-19.916-48.353v-316.308q-25.269-18.23-36.827-50.574-11.558-32.343.058-68.464l39.638-129.821q7.929-24.491 26.9-39.469 18.97-14.979 45.326-14.979h537.006q26.179 0 45.096 14.212 18.917 14.211 27.268 39.478l40.187 130.579q11.616 36.192.058 68.423t-36.827 51.385Zm-257.207-27.307q33.631 0 49.978-20.039 16.346-20.038 13.346-43.038l-24-157.732h-98.078v157.193q0 25.654 17.297 44.635 17.297 18.981 41.457 18.981Zm-177.563 0q27.883 0 45.366-18.981 17.482-18.981 17.482-44.635v-157.193h-98.078l-23.808 159.27q-2.923 20.808 13.539 41.173 16.462 20.366 45.499 20.366Zm-175.537 0q22.847 0 38.943-15.783 16.096-15.783 19.865-39.487l24.039-165.539h-87.347q-6.539 0-10.481 2.884-3.943 2.885-5.674 8.655L154.23-627.5q-8.731 28.5 7.615 54.212 16.347 25.712 52.001 25.712Zm532.731 0q32.462 0 50.904-24.539 18.443-24.539 8.712-55.385l-39.961-130.115q-1.924-5.77-5.866-8.27-3.943-2.5-10.289-2.5h-86.155l23.81 165.539q3.806 23.462 19.902 39.366 16.097 15.904 38.943 15.904ZM204.539-192.422h551.345q5.385 0 8.847-3.462 3.462-3.462 3.462-8.847v-290.116q-6.231 2.077-11.327 2.654-5.097.577-10.295.577-26.69 0-46.954-9.769-20.264-9.77-38.77-31.308-16.193 18.769-39.034 29.923-22.842 11.154-52.124 11.154-25.189 0-47.17-10.577-21.98-10.577-41.904-30.5-18.538 19.923-42 30.5-23.461 10.577-46.775 10.577-26.225 0-49.917-9.404t-41.692-31.673q-25.847 25.846-46.654 33.462-20.808 7.615-39.717 7.615-5.278 0-10.8-.577-5.522-.577-10.83-2.654v290.116q0 5.385 3.462 8.847 3.462 3.462 8.847 3.462Zm551.345 0H204.539 755.884Z" />
                 </svg>
-                <h3 class="captionedIcon__title">Salony optyczne</h3>
+                <h3 class="captionedIcon__title">Ścieżki</h3>
             </div>
             <fieldset class="filters">
                 <input type="search" placeholder="Szukaj">
@@ -49,8 +49,14 @@
                     </div>
                     <div class="inputSearch">
                         <label for=""></label>
-                        <input type="range" name="" id="searchVoiviodeships" placeholder="Handlowiec" class="inputSearch__header">
+                        <input type="number" name="" id="searchVoiviodeships" min="0" placeholder="Prędkość" class="inputSearch__header">
                         </ul>
+                    </div>
+                    <div class="datePicker">
+                        <label for="datePickerFrom">Od</label>
+                        <input class="datePicker__input" type="date" id="datePickerFrom" name="datePickerFrom" value="<?= date("Y-m-d") ?>" />
+                        <label for="datePickerTo">Do</label>
+                        <input class="datePicker__input" type="date" id="datePickerTo" name="datePickerTo" value="<?= date("Y-m-d") ?>" />
                     </div>
                 </div>
             </fieldset>
@@ -96,7 +102,7 @@
                 <li class="table__cell">Data wystąpienia</li>
                 <li class="table__cell">Operacje</li>
             </ul>
-            <div class="table__body">
+            <div class="table__body" id="routesTable">
                 <ul class="table__row">
                     <li class="table__cell">1</li>
                     <li class="table__cell">88096</li>
