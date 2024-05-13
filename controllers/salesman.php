@@ -1,4 +1,4 @@
 <?php
-header("Access-Control-Allow-Origin: http://routesopti.infinityfreeapp.com/");
+header("Access-Control-Allow-Origin: *");
 
 require "views/salesman.view.php";
