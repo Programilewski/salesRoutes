@@ -5,12 +5,18 @@
     display: grid;
     grid-template-columns: 1fr;
     border:none;
+    &__inputContainer:has(input[type='radio']:checked){
+        transform: translateX(1rem);
+        border-left: 5px solid white;
+        background-color: #0055be;
+    }
     & legend
     {
         margin:0.5rem 0;
     }
     &__inputContainer
     {
+        width: 100%;
         background-color: black;
         text-align: center;
         padding:0.5rem;
@@ -38,11 +44,6 @@
         & input{
             display: none;
         }
-    }
-    &__inputContainer:has(input[type='radio']:checked){
-        transform: translateX(1rem);
-        border-left: 5px solid white;
-        background-color: #0055be;
     }
 }
 
