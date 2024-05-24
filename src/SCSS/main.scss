@@ -71,3 +71,9 @@ select, input[type="search"]
     flex-direction: column;
     justify-content: space-between;
 }
+input[type="color"]
+{
+    background-color: transparent;
+    border:none;
+    appearance: none;
+}
