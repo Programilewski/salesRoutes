@@ -53,26 +53,40 @@ export class Salesman{
     }
     showStops()
     {
-        const stopsOnIgnition = this.getStopsOnIgnition();
-        const stopsOffIgnition = this.getStopsOffIgnition();
-    }
-    getStopsOnIgnition(){
         this.getRoutes(this.date)
-            .then((routes)=>{
-                const onIgnitionRoutes = routes.filter(route=>route.is_engine_ignited === 1 && route.speed === 0);
-                const stops = this.sortRoutes(onIgnitionRoutes);
-                this.renderStops(stops,"zapalony silnik",icon);
-            })
-    }
-    getStopsOffIgnition(date,icon)
-    {
-        this.getRoutes(date)
         .then((routes)=>{
-            const offIgnitionRoutes = routes.filter(route=>route.is_engine_ignited === 0);
-            const stops = this.sortRoutes(offIgnitionRoutes);
-            this.renderStops(stops,"zgaszony silnik",icon);
+            console.log(routes);
+            const filtered = routes.filter(route => route.speed === 0);
+            console.log(filtered);
+            routes.forEach((route,index)=>{
+                if(route.is_engine_ignited === 1 && route.speed === 0)
+                    {
+
+                    }
+                // if(route.is_engine_ignited === 0 && route.speed === 0)
+                //     {
+
+                //     }
+            })
         })
     }
+    // getStopsOnIgnition(){
+    //     this.getRoutes(this.date)
+    //         .then((routes)=>{
+    //             const onIgnitionRoutes = routes.filter(route=>route.is_engine_ignited === 1 && route.speed === 0);
+    //             const stops = this.sortRoutes(onIgnitionRoutes);
+    //             this.renderStops(stops,"zapalony silnik",icon);
+    //         })
+    // }
+    // getStopsOffIgnition(date,icon)
+    // {
+    //     this.getRoutes(date)
+    //     .then((routes)=>{
+    //         const offIgnitionRoutes = routes.filter(route=>route.is_engine_ignited === 0);
+    //         const stops = this.sortRoutes(offIgnitionRoutes);
+    //         this.renderStops(stops,"zgaszony silnik",icon);
+    //     })
+    // }
     renderStops(stops,engineState,icon){
         let stopsCounter = 1;
         stops.forEach((item)=>{

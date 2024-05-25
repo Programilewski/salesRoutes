@@ -1,1 +1,15 @@
 It should be mainly PHP structure with some JS.
+DO not merge the stops.
+See 24/05/2024 Rafał Kołacz
+at: 1716547241 / Index 133
+to: 1716553623 / Index 157
+It shows he stopped, turned the engine off, then turn it on and had it that way for 10 minutes, turned it off again and only then turned it on and drove away.
+
+How it is detected IT IS 100% correct according to SOLIDsecurity:
+
+ON
+Start Detection     Engine.started === 1 && speed === 0
+End Detection       First instance of speed > 0 OR the Engine.started === 0
+OFF
+Start Detection     Needs to be both engine.started === 0 and speed === 0
+End Detection       First instance of engine.started === 1 and speed can be anything
