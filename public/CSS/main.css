@@ -351,14 +351,8 @@ input[type=color] {
 .stopsContainer {
   position: absolute;
   width: 200px;
-  min-height: 251px;
-  bottom: 10rem;
-  right: 2rem;
-  z-index: 1000;
+  min-height: 150px;
   background-color: white;
-}
-.stopsContainer h4 {
-  color: black;
 }
 
 /*# sourceMappingURL=main.css.map */

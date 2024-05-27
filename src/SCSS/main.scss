@@ -77,3 +77,16 @@ input[type="color"]
     border:none;
     appearance: none;
 }
+.stopsContainer
+{
+    position: absolute;
+    width: 200px;
+    min-height: 251px;
+    bottom: 10rem;
+    right: 2rem;
+    z-index: 1000;
+    background-color: white;
+    & h4{
+        color:black;
+    }
+}
