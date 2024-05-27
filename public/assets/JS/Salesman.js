@@ -1,4 +1,3 @@
-
 export class Salesman{
     constructor(car_id,code,color,date) {
         
@@ -46,14 +45,18 @@ export class Salesman{
         return result;
     }
     showRoute()
-    {   this.getRoutes(this.date)
-        .then((routes)=>{
-            const coordinates = routes.reduce((arr,item)=>{
-                arr.push([item.latitude,item.longitude]);
-                return arr;
-            },[])
-            const polyline = L.polyline(coordinates,{color:"#000000"}).addTo(map);
-            map.fitBounds(polyline.getBounds());
+    {   
+        return new Promise((resolve,reject)=>{
+            this.getRoutes(this.date)
+            .then((routes)=>{
+                const coordinates = routes.reduce((arr,item)=>{
+                    arr.push([item.latitude,item.longitude]);
+                    return arr;
+                },[])
+                const polyline = L.polyline(coordinates,{color:"#000000"}).addTo(map);
+                map.fitBounds(polyline.getBounds());
+                resolve(polyline);
+            })
         })
     }
     getStops(routes,engineState,speedOnStop){
@@ -101,10 +104,8 @@ export class Salesman{
             this.renderStops(stops);
         })
     }
-    
     renderStops(stops){
         stops.forEach((stop,index)=>{
-            console.log(stop[0], "<-- This is the stop")
             const stopIconOptions = {
                 iconUrl: `/api/stopIcon?digit=${index+1}`,
                 iconSize:[30,30]
