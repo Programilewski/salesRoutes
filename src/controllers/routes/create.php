@@ -1,7 +1,9 @@
 <?php
-require "Database.php";
-$config = require "config.php";
-//dd($config);
+
+use Core\Database;
+
+$config = require base_path("src/config.php");
+
 function sendCurlRequest($car_id, $date_from, $date_to)
 {
     $ch = curl_init("https://api.gps2.solidsecurity.pl/message/new/{$car_id}/{$date_from}/{$date_to}");
@@ -79,11 +81,3 @@ foreach ($listOfSalesmen as $salesman) {
     }
     echo "==========";
 }
-
-/// Get the list of the salesmen
-
-/// Loop over them, in each iteration:
-//////Get the newest date from the database based on the car_id
-//////Send a request to the API with the range of newest day and today's date
-//////Convert the date 
-//////Upload it to the database

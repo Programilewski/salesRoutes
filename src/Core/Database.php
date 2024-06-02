@@ -1,5 +1,9 @@
 <?php
-$config = require "config.php";
+
+namespace Core;
+
+use PDO;
+
 class Database
 {
     public $connection;
@@ -9,11 +13,14 @@ class Database
         $dsn = "mysql:" . http_build_query($config, "", ";");
         $this->connection = new PDO($dsn, $username, $password);
     }
-    public function query($query,$params = [])
+    public function query($query, $params = [])
     {
         $this->statement  = $this->connection->prepare($query);
-//        $this->statement->execute($params);
-        $this->statement->execute($params);
+        //        $this->statement->execute($params);
+        foreach ($params as $param) {
+            $this->statement->bindParam($param["key"], $param["value"], $param["type"]);
+        }
+        $this->statement->execute();
         return $this;
     }
     public function fetchAllDataAssoc()

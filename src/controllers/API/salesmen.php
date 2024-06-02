@@ -1,7 +1,8 @@
 <?php
-require __DIR__ . "/../../Database.php";
-$config = require __DIR__ . "/../../config.php";
 
+use Core\Database;
+
+$config = require base_path("src/config.php");
 
 $db = new Database($config);
 $query = "SELECT * FROM salesmen";

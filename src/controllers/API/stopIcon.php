@@ -1,13 +1,8 @@
 <?php
-// circle.php
 
-// Get the digit from the GET request, default to '0' if not set
 $digit = isset($_GET['digit']) ? htmlspecialchars($_GET['digit']) : '0';
 
-// Set the Content-Type to image/svg+xml
 header('Content-Type: image/svg+xml');
-
-// Output the SVG code
 echo <<<SVG
 <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
     <!-- Draw a white circle with black border -->

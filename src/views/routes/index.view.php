@@ -21,7 +21,7 @@
             <?php
             $title = "Ścieżki";
             $icon = "routes.svg";
-            require "partials/heading.php"; ?>
+            require __DIR__ . "/../partials/heading.php"; ?>
             <fieldset class="filters">
                 <input type="search" placeholder="Szukaj">
                 <div class="filters__group">
@@ -60,7 +60,7 @@
             </fieldset>
             <div class="loader"></div>
         </div>
-        <?php require "partials/links.php" ?>
+        <?php require __DIR__ . "/../partials/links.php" ?>
 
     </nav>
     <main class="mainContent">

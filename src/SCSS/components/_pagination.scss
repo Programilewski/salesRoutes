@@ -1,0 +1,17 @@
+.pagination
+{
+    width:25%;
+    padding:1rem;
+    margin:0 auto;
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    // background-color: lightblue;
+    color:#333;
+    &__current
+    {
+        font-size: 1.5rem;
+    font-weight: 700;
+        color: black;
+    }
+}

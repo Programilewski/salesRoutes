@@ -1,15 +1,16 @@
 <?php
 
-return [
-    "/" => "controllers/homepage.php",
-    "/about" => "controllers/about.php",
-    "/stores" => "controllers/stores.php",
-    "/salesmen" => "controllers/salesmen.php",
-    "/routes" => "controllers/routes.php",
-    "/api/stores" => "controllers/API/stores.php",
-    "/api/salesmen" => "controllers/API/salesmen.php", // List of the salesmen
-    "/api/routes" => "controllers/API/routes.php",
-    "/api/icon" => "controllers/API/icon.php",
-    "/api/stopIcon" => "controllers/API/stopIcon.php",
-    "/update" => "/updateDaily.php"
-];
+$router->get("/", "controllers/index.php");
+$router->get("/stores", "controllers/stores/index.php");
+$router->get("/salesmen", "controllers/salesmen/index.php");
+$router->get("/routes", "controllers/routes/index.php");
+$router->get("/api/stores", "controllers/API/stores.php");
+$router->get("/api/salesmen", "controllers/API/salesmen.php");
+$router->get("/api/routes", "controllers/API/routes.php");
+$router->get("/api/icon", "controllers/API/icon.php");
+$router->get("/api/stopIcon", "controllers/API/stopIcon.php");
+$router->get("/update", "/controllers/routes/create.php");
+$router->delete("/salesmen", "controllers/salesmen/destroy.php");
+$router->post("/salesmen", "controllers/salesmen/create.php");
+$router->delete("/stores", "controllers/stores/destroy.php");
+$router->post("/stores", "controllers/stores/create.php");

@@ -16,19 +16,23 @@ export class Salesman{
     }
     showStores()
     {
-        const storesData = [];
-        this.fetchData(`/api/stores?salesman_id=${this.code}`)
-        .then((stores)=>{
-            stores.forEach((store)=>{
-                const storeIconOptionss = {
-                    iconUrl:"/api/icon",
-                    iconSize:[20,40]
-                }
-                const storeMarker = L.marker([store.latitude,store.longitude],{icon:L.icon(storeIconOptionss)}).addTo(map);
-                storesData.push(storeMarker);
+        return new Promise((resolve,reject)=>{
+            const storesData = [];
+            this.fetchData(`/api/stores?salesman_id=${this.code}`)
+            .then((stores)=>{
+                stores.forEach((store)=>{
+                    const storeIconOptionss = {
+                        iconUrl:"/api/icon",
+                        iconSize:[20,40]
+                    }
+                    const storeMarker = L.marker([store.latitude,store.longitude],{icon:L.icon(storeIconOptionss)}).addTo(map);
+                    storeMarker.bindPopup(`${store.name}`);
+                    storesData.push(storeMarker);
+                })
+                resolve(storesData);
             })
-            return storesData;
         })
+
     }
     getRoutes(date){
         return this.fetchData(`/api/routes?car_id=${this.car_id}&date=${date}`);
@@ -92,37 +96,52 @@ export class Salesman{
     }
     showStops()
     {
-        this.getRoutes(this.date)
-        .then((routes)=>{
-            console.log(routes);
-            // THIS IS A CORRECT FORMULA, BUT ORIGINALLY THE SOLID TEAM DOES NOT INCLUDE THE STOPS BELOW 60 SECONDS.
-            const onIgnitionStops = this.getStops([...routes],1,0);
-            let offIgnitionStops = this.getStops([...routes],0,0);
-            console.log(offIgnitionStops);
-            console.log(onIgnitionStops);
-            const stops = this.mergeAndSortStops(offIgnitionStops,onIgnitionStops);
-            this.renderStops(stops);
+        return new Promise((resolve,reject)=>{
+            this.getRoutes(this.date)
+            .then((routes)=>{
+                console.log(routes);
+                const onIgnitionStops = this.getStops([...routes],1,0);
+                let offIgnitionStops = this.getStops([...routes],0,0);
+                console.log(offIgnitionStops);
+                console.log(onIgnitionStops);
+                const stops = this.mergeAndSortStops(offIgnitionStops,onIgnitionStops);
+                const allStops = this.renderStops(stops);
+                resolve(allStops);
+            })
         })
+
     }
     renderStops(stops){
+        const allStops = [];
+        let newIndex = 1;
         stops.forEach((stop,index)=>{
             const stopIconOptions = {
-                iconUrl: `/api/stopIcon?digit=${index+1}`,
+                iconUrl: `/api/stopIcon?digit=${newIndex}`,
                 iconSize:[30,30]
             }
-            const marker = L.marker([stop[0].latitude,stop[0].longitude],{icon:L.icon(stopIconOptions)}).addTo(map);
-            const message = stop[0].is_engine_ignited === 1?"na włączonej stacyjce":"na wyłączonej stacyjce";
             const firstItemTime = stop[0].time;
             const lastItemTime = stop[stop.length-1].time;
             const timeDifference = lastItemTime - firstItemTime;
-            const date = new Date(timeDifference*1000);
-            const dateFormatted = date.toISOString();
-            const firstItemDate = this.formatDate(firstItemTime);
-            const lastItemDate = this.formatDate(lastItemTime);
+            console.log(timeDifference,"<-- time difference")
+            if(timeDifference>30)
+                {
+                    const marker = L.marker([stop[0].latitude,stop[0].longitude],{icon:L.icon(stopIconOptions)}).addTo(map);
+                    const message = stop[0].is_engine_ignited === 1?"na włączonej stacyjce":"na wyłączonej stacyjce";
 
-            marker.bindPopup(`Postój nr: <b>${index+1}</b> ${message}<br> Czas postoju: ${dateFormatted.slice(11,19)}<br>Postój od: ${firstItemDate}<br>Postój do ${lastItemDate}<br>
-            ${stop[0].latitude} ${stop[0].longitude}`);
+        
+                    const date = new Date(timeDifference*1000);
+                    const dateFormatted = date.toISOString();
+                    const firstItemDate = this.formatDate(firstItemTime);
+                    const lastItemDate = this.formatDate(lastItemTime);
+        
+                    marker.bindPopup(`Postój nr: <b>${newIndex}</b> ${message}<br> Czas postoju: ${dateFormatted.slice(11,19)}<br>Postój od: ${firstItemDate}<br>Postój do ${lastItemDate}<br>
+                    ${stop[0].latitude} ${stop[0].longitude}`);
+                    allStops.push(marker);
+                    newIndex++;
+                }
+
         })
+        return allStops;
     }
 }
  

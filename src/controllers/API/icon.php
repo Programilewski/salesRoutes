@@ -1,5 +1,6 @@
 <?php
 header("Content-type: image/svg+xml");
+$config = require base_path("src/config.php");
 
 // Get the color from the query string
 $color = isset($_GET['color']) ? $_GET['color'] : '000000';
