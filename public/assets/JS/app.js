@@ -20,7 +20,30 @@ salesmenButtons.forEach((button)=>{
 
 
         const stops = salesman.showStops()
-        .then(stops=>stopsReference = stops);
+        .then((stops)=>{
+            stopsReference = stops;
+            const stopsLists = document.querySelector(".stopsList");
+            stops.forEach((stop,index)=>{
+                const li = document.createElement("li");
+                li.addEventListener("click",()=>{
+                    map.setZoom(15);
+
+                    map.panTo(stop.getLatLng(),{
+                        animate:true
+                    });
+
+                });
+                li.classList.add("stop");
+                const number = document.createElement("span");
+                number.classList.add("stop__number");
+                number.innerHTML = index+1;
+                const data = document.createElement("p");
+                data.innerHTML = stop.getLatLng().toString();
+                console.log(stop);
+                li.append(number,data);
+                stopsLists.append(li);
+            });
+        });
 
 
 

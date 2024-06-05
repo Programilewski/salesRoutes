@@ -99,11 +99,11 @@ export class Salesman{
         return new Promise((resolve,reject)=>{
             this.getRoutes(this.date)
             .then((routes)=>{
-                console.log(routes);
+                // console.log(routes);
                 const onIgnitionStops = this.getStops([...routes],1,0);
                 let offIgnitionStops = this.getStops([...routes],0,0);
-                console.log(offIgnitionStops);
-                console.log(onIgnitionStops);
+                // console.log(offIgnitionStops);
+                // console.log(onIgnitionStops);
                 const stops = this.mergeAndSortStops(offIgnitionStops,onIgnitionStops);
                 const allStops = this.renderStops(stops);
                 resolve(allStops);
@@ -122,7 +122,7 @@ export class Salesman{
             const firstItemTime = stop[0].time;
             const lastItemTime = stop[stop.length-1].time;
             const timeDifference = lastItemTime - firstItemTime;
-            console.log(timeDifference,"<-- time difference")
+            // console.log(timeDifference,"<-- time difference")
             if(timeDifference>30)
                 {
                     const marker = L.marker([stop[0].latitude,stop[0].longitude],{icon:L.icon(stopIconOptions)}).addTo(map);
@@ -135,7 +135,9 @@ export class Salesman{
                     const lastItemDate = this.formatDate(lastItemTime);
         
                     marker.bindPopup(`Postój nr: <b>${newIndex}</b> ${message}<br> Czas postoju: ${dateFormatted.slice(11,19)}<br>Postój od: ${firstItemDate}<br>Postój do ${lastItemDate}<br>
-                    ${stop[0].latitude} ${stop[0].longitude}`);
+                    <a target='_blank' href='http://www.google.com/maps?q=${stop[0].latitude} ,+${stop[0].longitude}'>Google maps</a>
+                    
+                    `);
                     allStops.push(marker);
                     newIndex++;
                 }

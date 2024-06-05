@@ -56,25 +56,29 @@
 .table {
   height: 90%;
   font-size: 0.875rem;
-  background-color: #ffffff;
   color: #000000;
   width: 100%;
+  background-color: white;
+  border: 1px solid #aaaaaa;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: 1fr 18fr;
+  box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.1215686275);
 }
 .table__row {
+  background-color: white;
   padding: 0.75rem;
   display: grid;
   gap: 0.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-}
-.table__row:nth-of-type(2n) {
-  background-color: rgba(0, 0, 0, 0.05);
+  grid-template-columns: 2rem 25rem repeat(auto-fit, minmax(50px, 1fr));
+  border-bottom: 1px solid #ddd;
 }
 .table__header {
+  border-bottom: 1px solid black;
   box-sizing: border-box;
-  width: 100%;
-  padding-right: 2rem;
-  margin: 0 auto;
-  border-bottom: 1px solid #4770FF;
+  padding: 1rem 2rem 1rem 1rem;
+  background-color: #101218;
+  color: white;
 }
 .table__header .table__cell {
   font-weight: 700;
@@ -88,9 +92,23 @@
 }
 .table__body {
   overflow-y: scroll;
-  height: 90%;
+}
+.table__body::-webkit-scrollbar {
+  width: 8px;
+  margin: 0 0.5rem;
+  padding: 0 0.5rem;
+}
+.table__body::-webkit-scrollbar-track {
+  background-color: #e0e0e0;
+  border-radius: 1rem;
+}
+.table__body::-webkit-scrollbar-thumb {
+  background-color: #b5c5ff;
+  border-radius: 1rem;
 }
 .table__cell {
+  display: flex;
+  align-items: center;
   font-weight: 500;
   text-transform: lowercase;
   word-break: break-word;
@@ -116,11 +134,17 @@
   width: calc(100% - 1rem);
   margin-left: 1rem;
   padding: 1rem;
-  background-color: white;
+  background-color: transparent;
   border: 2px solid #ffffff;
-  color: black;
+  color: white;
   font-size: 0.875rem;
   font-weight: 700;
+}
+
+input[type=date]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  transform: scale(1.5);
+  cursor: pointer;
 }
 
 .radioInputGroup {
@@ -205,9 +229,11 @@
 .inputSearch__header {
   width: 100%;
   box-sizing: border-box;
-  padding: 0.5rem;
+  padding: 1rem 0.5rem;
   background-color: black;
-  border: 1px solid black;
+  border: 1px solid #101218;
+  outline: 1px solid #101218;
+  border-bottom: 1px solid #65B4FD;
   color: white;
 }
 .inputSearch__header::placeholder {
@@ -244,12 +270,89 @@ h1 {
   font-size: 2.5rem;
 }
 
+.heading-2--black {
+  color: black;
+}
+
 h2 {
   font-size: 2rem;
 }
 
 h3 {
   font-size: 1.5rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.row-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column: span 12;
+  width: 100%;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.row-flex {
+  display: flex;
+  width: 100%;
+}
+
+.row--end {
+  justify-content: end;
+}
+
+.col-1 {
+  grid-column: span 1;
+}
+
+.col-2 {
+  grid-column: span 2;
+}
+
+.col-3 {
+  grid-column: span 3;
+}
+
+.col-4 {
+  grid-column: span 4;
+}
+
+.col-5 {
+  grid-column: span 5;
+}
+
+.col-6 {
+  grid-column: span 6;
+}
+
+.col-7 {
+  grid-column: span 7;
+}
+
+.col-8 {
+  grid-column: span 8;
+}
+
+.col-9 {
+  grid-column: span 9;
+}
+
+.col-10 {
+  grid-column: span 10;
+}
+
+.col-11 {
+  grid-column: span 11;
+}
+
+.col-12 {
+  grid-column: span 12;
 }
 
 .mainNavigation {
@@ -280,21 +383,53 @@ h3 {
 .form {
   display: flex;
   flex-direction: column;
+  color: black;
+}
+.form--w25 {
+  width: 25%;
+  max-width: 25%;
+}
+.form--w50 {
+  width: 50%;
+  max-width: 50%;
+}
+.form--w75 {
+  width: 75%;
+  max-width: 75%;
+}
+.form--w100 {
+  width: 100%;
+  max-width: 100%;
+}
+.form--m5 {
+  margin: 5rem;
+}
+.form--white {
+  color: white;
+}
+.form--black {
+  color: black;
 }
 
 .pagination {
-  width: 25%;
-  padding: 1rem;
-  margin: 0 auto;
+  width: fit-content;
   display: flex;
   align-items: center;
   justify-content: space-around;
   color: #333;
 }
 .pagination__current {
-  font-size: 1.5rem;
+  padding: 0.25rem 0.5rem;
+  background-color: white;
   font-weight: 700;
+  border-radius: 0.25rem;
+}
+.pagination a {
+  text-decoration: none;
+  font-weight: 900;
   color: black;
+  font-size: 1.25rem;
+  padding: 0.25rem 0.5rem;
 }
 
 /*# sourceMappingURL=index.css.map */

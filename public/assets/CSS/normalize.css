@@ -23,8 +23,13 @@ body {
  * Render the `main` element consistently in IE.
  */
 main {
-  width: calc(100vw - 350px);
-  display: block;
+  /* padding: 1rem; */
+  background: #f7fdff;
+  /* width: calc(100vw - 350px); */
+  display: flex;
+  flex-direction: column;
+  /* flex-direction: column; */
+  /* grid-template-columns: 1fr; */
 }
 
 /**

@@ -1,94 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php require __DIR__ . "/../partials/head.php"; ?>
 
-<head>
-    <meta charset="UTF-8">
-    <title>Do</title>
-    <link rel="stylesheet" href="/assets/CSS/reset.css">
-    <link rel="stylesheet" href="/assets/CSS/normalize.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/CSS/main.css">
-    <link rel="stylesheet" href="/assets/CSS/typography.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-</head>
-
-<body>
-    <nav class="mainNavigation">
-        <div class="controls">
-            <?php
-            $title = "Salony optyczne";
-            $icon = "store.svg";
-            require __DIR__ . "/../partials/heading.php"; ?>
-            <fieldset class="filters">
-                <input type="search" placeholder="Szukaj">
-                <div class="filters__group">
-                    <div class="inputSearch">
-                        <input type="text" name="" id="searchVoiviodeships" placeholder="Województwo" class="inputSearch__header">
-                        <ul class="inputSearch__list" id="searchVoiviodeshipsField">
-                        </ul>
-                    </div>
-                    <div class="inputSearch">
-                        <input type="text" name="" id="searchVoiviodeships" placeholder="Miasto" class="inputSearch__header">
-                        <ul class="inputSearch__list" id="searchVoiviodeshipsField">
-                        </ul>
-                    </div>
-                    <div class="inputSearch">
-                        <input type="text" name="" id="searchVoiviodeships" placeholder="Handlowiec" class="inputSearch__header">
-                        <ul class="inputSearch__list" id="searchVoiviodeshipsField">
-                        </ul>
-                    </div>
+<nav class="mainNavigation">
+    <div class="controls">
+        <?php
+        $title = "Salony optyczne";
+        $icon = "store.svg";
+        require __DIR__ . "/../partials/heading.php"; ?>
+        <fieldset class="filters">
+            <input type="search" placeholder="Szukaj">
+            <div class="filters__group" data-bs-theme="dark">
+                <div class="inputSearch">
+                    <input type="text" name="" id="searchVoiviodeships" placeholder="Województwo" class="inputSearch__header">
+                    <ul class="inputSearch__list" id="searchVoiviodeshipsField">
+                    </ul>
                 </div>
-                <input type="button" class="button button--default button--medium" value="Dodaj">
-            </fieldset>
-            <form class="form" method="POST" action="">
-                <label for="name">Nazwa</label>
-                <input requiredd id="name" name="name" type="text">
-                <label for="voivodeship">Województwo</label>
-                <input requiredd id="voivodeship" name="voivodeship" type="text">
-                <label for="city">Miasto</label>
-                <input type="text" name="city" id="city">
-                <label for="zip_code">Kod pocztowy</label>
-                <input type="text" name="zip_code" id="zip_cdoe">
-                <label for="street_name">Ulica</label>
-                <input type="text" name="street_name" id="street_name">
-                <label for="street_number">Nr. Ulicy</label>
-                <input type="text" name="street_number" id="street_number">
-                <label for="apartment_number">Nr. lokalu</label>
-                <input type="text" name="apartment_number" id="apartment_number">
-                <label for="latitude">Szerokość Geograficzna</label>
-                <input type="text" name="latitude" id="latitude">
-                <label for="longitude">Długość Geograficzna</label>
-                <input type="text" name="longitude" id="longitude">
-                <label for="salesman_code">Kod handlowca</label>
-                <input type="text" name="salesman_code" id="salesman_code">
-                <button class="button button--default button--medium" type="submit">Dodaj</button>
-                <?php
-                if (isset($errors)) {
-                    foreach ($errors as $key => $value) {
-                        echo $value . "<br>";
-                    }
-                }
-                ?>
-            </form>
+                <div class="inputSearch">
+                    <input type="text" name="" id="searchVoiviodeships" placeholder="Miasto" class="inputSearch__header">
+                    <ul class="inputSearch__list" id="searchVoiviodeshipsField">
+                    </ul>
+                </div>
+                <div class="inputSearch">
+                    <input type="text" name="" id="searchVoiviodeships" placeholder="Handlowiec" class="inputSearch__header">
+                    <ul class="inputSearch__list" id="searchVoiviodeshipsField">
+                    </ul>
+                </div>
+            </div>
+            <!-- <input type="button" class="button button--default button--medium" value="Dodaj"> -->
+            <a class="button button--default button--medium" href="/stores/new">Dodaj</a>
+        </fieldset>
+
+    </div>
+    <?php require __DIR__ . "/../partials/links.php" ?>
+</nav>
+<main class="mainContent container">
+    <div class="row-flex justify-end">
+        <div class="pagination col-2">
+
+            <p>Rows per page:</p>
+            <p><?= $stores_per_page ?></p>
+            <p></p>
+
+            <?php
+            if ($page_number == 1) {
+                echo '<a href="#" class="pagination__left pagination__disabled">&lt;</a>';
+            } else {
+                echo '<a href="?page=' . $page_number - 1 . '" class="pagination__left ">&lt;</a>';
+            }
+            ?>
+            <div class="pagination__current"><?= $page_number ?></div>
+            <a href="/stores?page=<?= $page_number + 1 ?>" class="pagination__right">&gt;</a>
+
         </div>
-        <?php require __DIR__ . "/../partials/links.php" ?>
-    </nav>
-    <main class="mainContent">
-        <div class="table">
+    </div>
+    <div class="row">
+        <div class="table col-12">
             <ul class="table__header table__row">
                 <li class="table__cell">ID</li>
                 <li class="table__cell">Nazwa</li>
-                <li class="table__cell">Województwo</li>
                 <li class="table__cell">Miasto</li>
                 <li class="table__cell">Kod pocztowy</li>
                 <li class="table__cell">Ulica</li>
-                <li class="table__cell">Nr. Ulicy</li>
-                <li class="table__cell">Nr. lokalu</li>
-                <li class="table__cell">Szr. Geogr.</li>
-                <li class="table__cell">Dł. Geogr.</li>
                 <li class="table__cell">Kod handlowca</li>
                 <li class="table__cell">Operacje</li>
             </ul>
@@ -99,14 +70,12 @@
                     <ul class="table__row">
                         <li class="table__cell"><?= $store["store_id"] ?></li>
                         <li class="table__cell"><?= $store["name"] ?></li>
-                        <li class="table__cell"><?= $store["voivodeship"] ?></li>
                         <li class="table__cell"><?= $store["city"] ?></li>
                         <li class="table__cell"><?= $store["zip_code"] ?></li>
-                        <li class="table__cell"><?= $store["street_name"] ?></li>
-                        <li class="table__cell"><?= $store["street_number"] ?></li>
-                        <li class="table__cell"><?= $store["apartment_number"] ?></li>
-                        <li class="table__cell"><?= $store["latitude"] ?></li>
-                        <li class="table__cell"><?= $store["longitude"] ?></li>
+                        <li class="table__cell">
+                            <?php
+                            echo $store["apartment_number"] != null ? $store["street_name"] . " " . $store["street_number"] . "/" . $store["apartment_number"] : $store["street_name"] . " " . $store["street_number"];
+                            ?></li>
                         <li class="table__cell"><?= $store["salesman_id"] ?></li>
                         <li class="table__cell">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" height="24" viewBox="0 -960 960 960" width="24">
@@ -132,16 +101,10 @@
                 ?>
             </div>
         </div>
-        <div class="pagination">
-            <a href="/stores?page=<?= $page_number - 1 ?>" class="pagination__right">&lt;</a>
-            <div class="pagionation_previousOne"><?= $page_number - 2 ?></div>
-            <div class="pagionation_previousTwo"><?= $page_number - 1 ?></div>
-            <div class="pagination__current"><?= $page_number ?></div>
-            <div class="pagination_nextOne"><?= $page_number + 1 ?></div>
-            <div class="pagination_nextTwo"><?= $page_number + 2 ?></div>
-            <a href="/stores?page=<?= $page_number + 1 ?>" class="pagination__right">&gt;</a>
-    </main>
-    <script type="module" src="/assets/JS/stores.js" defer></script>
+    </div>
+
+</main>
+<script type="module" src="/assets/JS/stores.js" defer></script>
 </body>
 
 </html>

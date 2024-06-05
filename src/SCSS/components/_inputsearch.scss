@@ -3,13 +3,16 @@
     position: relative;
     box-sizing: border-box;
     border: 1px solid rgb(45, 45, 45);
+
     &__header
     {
         width: 100%;
         box-sizing: border-box;
-        padding:.5rem;
+        padding:1rem .5rem;
         background-color: black;
-        border:1px solid black;
+        border:1px solid #101218;
+        outline:1px solid #101218;
+        border-bottom:1px solid #65B4FD;
         color:white;
         &::placeholder
         {

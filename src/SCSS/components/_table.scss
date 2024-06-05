@@ -3,28 +3,30 @@
 {
     height: 90%;
     font-size: .875rem;
-    background-color: #ffffff;
     color:#000000;
     width: 100%;
+    background-color: white;
+    border:1px solid #aaaaaa;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: 1fr 18fr;
+    box-shadow: 2px 4px 4px 0 #0000001f;
     &__row
     {
+        background-color: white;
         padding:.75rem;
         display: grid;
         gap:.5rem;
-//        grid-template-columns: 1fr 8fr 5fr 5fr 6fr 2fr 3fr 3fr;
-        grid-template-columns: repeat( auto-fit, minmax(50px, 1fr) );
-        &:nth-of-type(2n)
-        {
-            background-color: rgba(0, 0, 0, 0.05);
-        }
+        grid-template-columns: 2rem 25rem repeat( auto-fit, minmax(50px, 1fr) );
+        border-bottom: 1px solid #ddd;
     }
     &__header
     {
+        border-bottom: 1px solid black;
         box-sizing: border-box;
-        width: 100%;
-        padding-right: 2rem;
-        margin: 0 auto;
-        border-bottom: 1px solid #4770FF;
+        padding:1rem 2rem 1rem 1rem;
+        background-color: #101218;
+        color:white;
         & .table__cell
         {
             font-weight: 700;
@@ -41,10 +43,29 @@
     &__body
     {
         overflow-y: scroll;
-        height: 90%;
+        &::-webkit-scrollbar
+        {
+            width: 8px;
+            margin:0 .5rem;
+            padding: 0 .5rem;
+        }
+        &::-webkit-scrollbar-track
+        {
+            background-color: #e0e0e0;
+            border-radius: 1rem;
+
+        }
+        &::-webkit-scrollbar-thumb
+        {
+            background-color: #b5c5ff;
+            border-radius: 1rem;
+        }
     }
+
     &__cell
     {
+        display: flex;
+        align-items: center;
         font-weight: 500;
         text-transform: lowercase;
         word-break: break-word;

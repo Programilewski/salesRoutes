@@ -10,10 +10,25 @@ $car_id = $_GET["car_id"];
 $date = $_GET["date"];
 $dateDayForward = $date + 86400;
 $db = new Database($config);
-$query = "SELECT * FROM routes WHERE car_id = ? AND time BETWEEN ? AND ?";
-//$query = "SELECT * FROM routes";
-//$db->query($query,[$car_id,$date,$dateDayForward]);
-$data = $db->query($query, [$car_id, $date, $dateDayForward])->fetchAllDataAssoc();
+
+// $data = $db->query($query, [$car_id, $date, $dateDayForward])->fetchAllDataAssoc();
+$data = $db->query("SELECT * FROM routes WHERE car_id = :car_id AND time BETWEEN :date AND :dateDayForward", [
+    [
+        "key" => "car_id",
+        "value" => $car_id,
+        "type" => PDO::PARAM_STR
+    ],
+    [
+        "key" => "date",
+        "value" => $date,
+        "type" => PDO::PARAM_INT
+    ],
+    [
+        "key" => "dateDayForward",
+        "value" => $dateDayForward,
+        "type" => PDO::PARAM_INT
+    ]
+])->fetchAllDataAssoc();
 //$data = $db->fetchAllDataAssoc();
 //dd($data);
 

@@ -11,10 +11,16 @@
         width: calc(100% - 1rem);
         margin-left: 1rem;
         padding:1rem;
-        background-color: white;
+        background-color: transparent;
         border:2px solid #ffffff;
-        color:black;
+        color:white;
         font-size: 0.875rem;
         font-weight: 700;
     }
+}
+input[type="date"]::-webkit-calendar-picker-indicator
+{
+    filter: invert(1);
+    transform: scale(1.5);
+    cursor: pointer;
 }
