@@ -17,7 +17,52 @@
 .row-flex
 {
     display: flex;
+    flex-direction: row;
     width: 100%;
+}
+.mv-1
+{
+    margin:1rem 0;
+}
+.mv-2
+{
+    margin:2rem 0;
+}
+.mv-3
+{
+    margin:3rem 0;
+}
+.mv-4
+{
+    margin:4rem 0;
+}
+.mv-5
+{
+    margin:5rem 0;
+}
+.mh-1
+{
+    margin:0 1rem;
+}
+.mh-2
+{
+    margin:0 2rem;
+}
+.mh-3
+{
+    margin:0 3rem;
+}
+.mh-4
+{
+    margin:0 4rem;
+}
+.mh-5
+{
+    margin:0 5rem;
+}
+.align-center
+{
+    align-items: center;
 }
 .row--end
 {

@@ -112,7 +112,9 @@ export class Salesman{
 
     }
     renderStops(stops){
+        const dataToReturn = {};
         const allStops = [];
+        const dates = [];
         let newIndex = 1;
         stops.forEach((stop,index)=>{
             const stopIconOptions = {
@@ -139,11 +141,14 @@ export class Salesman{
                     
                     `);
                     allStops.push(marker);
+                    dates.push([dateFormatted,firstItemDate,lastItemDate]);
                     newIndex++;
                 }
 
         })
-        return allStops;
+        dataToReturn.stops = allStops;
+        dataToReturn.dates = dates;
+        return dataToReturn;
     }
 }
  

@@ -15,3 +15,5 @@ $router->delete("/salesmen", "controllers/salesmen/destroy.php");
 $router->post("/salesmen", "controllers/salesmen/create.php");
 $router->delete("/stores", "controllers/stores/destroy.php");
 $router->post("/stores", "controllers/stores/create.php");
+$router->get("/salesmen/new", "controllers/salesmen/show.php");
+// $routes->get("stores/edit", "controllers/stores/show.php");

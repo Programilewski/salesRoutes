@@ -7,5 +7,5 @@ $db = new Database($config);
 $data  = $db->query("SELECT * FROM salesmen")->fetchAllDataAssoc();
 
 view("homepage.view.php", [
-    "data" => $data
+    "data" => $data,
 ]);
