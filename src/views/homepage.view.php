@@ -12,10 +12,18 @@
 </nav>
 <div id="map"></div>
 <div class="timeline">
-    <div class="stop">
-        <div class="stop__number">1</div>
-        <div class="stop__time">16:37 - 17:12</div>
-    </div>
+    <!-- <div class="stop">
+        <div class="stop__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+                <path d="M516-120 402-402 120-516v-56l720-268-268 720h-56Zm26-148 162-436-436 162 196 78 78 196Zm-78-196Z" />
+            </svg>
+        </div>
+        <div class="stop__content">
+            <h5 class="stop__title">Przystanek nr. 1</h5>
+            <div class="stop__dateFrom">Od: 16:42:59</div>
+            <div class="stop__dateTo">Do: 19:34:12</div>
+        </div>
+    </div> -->
 </div>
 <div class="controls">
     <div class="datePicker">

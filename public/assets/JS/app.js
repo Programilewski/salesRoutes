@@ -2,12 +2,16 @@ import {Salesman} from "./Salesman.js";
 let routeReference = null;
 let storesReference = null;
 let stopsReference = null;
-
-
+const timeline = document.querySelector(".timeline");
+const datePicker = document.querySelector("#datePickerInput");
+datePicker.addEventListener("click",function(e){
+    e.target.showPicker();
+})
 
 const salesmenButtons = document.querySelectorAll(".radioInputGroup__inputContainer input");
 salesmenButtons.forEach((button)=>{
     button.addEventListener("click",(e)=>{
+        timeline.innerHTML= "";
         routeReference!==null && routeReference.remove();
         storesReference!==null && storesReference.forEach(store=>store.remove());
         stopsReference!==null && stopsReference.forEach(stop=>stop.remove());
@@ -24,30 +28,35 @@ salesmenButtons.forEach((button)=>{
 
         const stops = salesman.showStops()
         .then((stopsData)=>{
-            console.log(stopsData);
             stopsReference = stopsData.stops;
-            const timeline = document.querySelector(".timeline");
             stopsData.stops.forEach((stop,index)=>{
-                // const li = document.createElement("li");
                 const stopItem = document.createElement("div");
-                stopItem.classList.add("stop");
                 stopItem.addEventListener("click",()=>{
-                    map.setZoom(15);
-
-                    map.panTo(stop.getLatLng(),{
-                        animate:true
+                    stopsData.stops.forEach((s)=>{
+                        s.setZIndexOffset(1000);
+                        s.setOpacity(0.2);
                     });
 
+                    stop.setZIndexOffset(2000);
+                    stop.setOpacity(1);
+                    map.setView(stop.getLatLng(),map.getZoom(),{
+                        animate:true
+                    });
                 });
-                const number = document.createElement("div");
-                number.classList.add("stop__number");
-                number.innerHTML = index+1;
                 const data = document.createElement("div");
-                data.classList.add("stop__time");
-                // data.innerHTML = stop.getLatLng().toString();
-                data.innerHTML = `${stopsData.dates[index][1]} - ${stopsData.dates[index][2]}`;
-                console.log(stopsData.dates[index]);
-                stopItem.append(number,data);
+                data.innerHTML = `<div class="stop">
+        <div class="stop__icon">
+            
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ff0000"><path d="M440-440v-400h80v400h-80Zm40 320q-74 0-139.5-28.5T226-226q-49-49-77.5-114.5T120-480q0-80 33-151t93-123l56 56q-48 40-75 97t-27 121q0 116 82 198t198 82q117 0 198.5-82T760-480q0-64-26.5-121T658-698l56-56q60 52 93 123t33 151q0 74-28.5 139.5t-77 114.5q-48.5 49-114 77.5T480-120Z"/></svg>
+        </div>
+        <div class="stop__content">
+            <h5 class="stop__title">Przystanek nr. ${index+1}</h5>
+            <div class="stop__dateFrom">Od: ${stopsData.dates[index][1]}</div>
+            <div class="stop__dateTo">Do: ${stopsData.dates[index][2]}</div>
+        </div>
+    </div>`;
+    console.log(stopsData);
+                stopItem.append(data);
                 timeline.append(stopItem);
             });
         });
@@ -59,9 +68,12 @@ salesmenButtons.forEach((button)=>{
 const currentURL = window.location.href;
 const parsedURL = new URL(currentURL);
 const params = parsedURL.searchParams;
+console.log(params.size);
+if(params.size>0)
+    {
+        const latitude = params.get("latitude");
+        const longitude = params.get("longitude");
+        const currentMarker = L.marker([latitude,longitude]).addTo(map);
+        map.panTo(currentMarker.getLatLng());
+    }
 
-const latitude = params.get("latitude");
-const longitude = params.get("longitude");
-
-// const currentMarker = L.marker([latitude,longitude]).addTo(map);
-// map.panTo(currentMarker.getLatLng());

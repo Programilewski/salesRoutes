@@ -130,7 +130,7 @@ export class Salesman{
                     const marker = L.marker([stop[0].latitude,stop[0].longitude],{icon:L.icon(stopIconOptions)}).addTo(map);
                     const message = stop[0].is_engine_ignited === 1?"na włączonej stacyjce":"na wyłączonej stacyjce";
 
-        
+                    
                     const date = new Date(timeDifference*1000);
                     const dateFormatted = date.toISOString();
                     const firstItemDate = this.formatDate(firstItemTime);

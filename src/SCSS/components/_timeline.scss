@@ -1,9 +1,10 @@
 .timeline
 {
     color:white;
-    flex-wrap: wrap;
-    width: 12vw;
-    min-height: 100vh;
+    overflow-y: scroll;
+    flex-wrap: nowrap;
+    width: 13vw;
+    height: 100vh;
     background-color: #222837;
     position: absolute;
     bottom: 0;
@@ -15,28 +16,64 @@
     flex-direction: column;
     gap:1rem;
     align-items: flex-start;
+
+    &::-webkit-scrollbar
+    {
+        width: 8px;
+        margin:0 .5rem;
+        padding: 0 .5rem;
+    }
+    &::-webkit-scrollbar-track
+    {
+        background-color: #000000;
+        border-radius: 1rem;
+
+    }
+    &::-webkit-scrollbar-thumb
+    {
+        background-color: #b5c5ff;
+        border-radius: 1rem;
+    }
 }
 .stop
 {
+    background-color: black;
+    border-radius: .5rem;
     font-weight: 700;
     margin:0 auto;
     font-size: .875rem;
     cursor: pointer;
-    display: flex;
-    width: fit-content;
-    padding:.5rem;
-    &__number
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    width: 100%;
+    box-sizing: border-box;
+    &__icon
     {
-        border-right: 1px solid lightblue;
+        display: grid;
+        place-items: center;
+        padding:.5rem;
+        background-color: #583DFF;
+        border-radius: .5rem 0 0 .5rem;
+
+    }
+    &__content
+    {
+        display: flex;
+        flex-direction: column;
+        gap:.5rem;
+        align-items: flex-start;
+        color:gray;
         padding:.5rem;
     }
-    &__time
+    &__title
     {
-        padding:.5rem;
+        font-weight: 900;
+        color:white;
+        font-size: 1rem;
     }
     &:hover
     {
         transition: .2s;
-        background-color: rgb(44, 88, 105);
+        background-color: #333333;
     }
 }
