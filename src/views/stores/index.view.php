@@ -1,7 +1,5 @@
 <?php require __DIR__ . "/../partials/head.php"; ?>
-<?php
-// dd($data);
-?>
+
 <nav class="mainNavigation">
     <?php
     $title = "Salony optyczne";
@@ -11,39 +9,82 @@
     <?php require __DIR__ . "/../partials/links.php" ?>
 </nav>
 <main class="mainContent container">
-    <div class="row-flex justify-end">
-        <div class="pagination col-2 mv-1 row-flex">
-            <fieldset class="filters row-flex">
-                <div class="inputSearch">
-                    <input type="text" name="" id="searchVoiviodeships" placeholder="Handlowiec" class="inputSearch__header">
+    <div class="row-flex justify-between align-end">
+        <div class="searchResults">
+            <?= isset($_GET["search"]) === true ? "Wyniki wyszukiwania dla: " . "<b>" . $_GET["search"] . "</b>" : "" ?>
+        </div>
+        <div class="row-flex align-end m-1">
+            <fieldset class="filters row-flex  justify-end">
+                <div class="inputSearch" id="salesmanFilter">
+                    <div class="inputSearch__badge"><?= $_GET["salesman_name"] ?? "" ?>
+                        <?php if (isset($_GET["salesman_id"])) { ?>
+                            <a href="<?= buildQuery("/stores", [], true, ["salesman_id", "salesman_name"]) ?>"><svg xmlns="http://www.w3.org/2000/svg" height="12px" viewBox="0 -960 960 960" width="12px" fill="#000000">
+                                    <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                                </svg></a>
+                        <?php } ?>
+                    </div>
+                    <input type="text" name="" id="searchSalesman" placeholder="Handlowiec" class="inputSearch__header">
                     <ul class="inputSearch__list" id="searchSalesmanField">
                         <?php
                         foreach ($salesmen as $salesman) {
-                            // if ($sortBy) {
-                            //     echo '<a href="?salesman=' . $salesman["salesman_code"] . '&sortby=' . $sortBy . '&sortorder=' . $asc_or_desc . '"><li>' . $salesman["name"] . '</a></li>';
-                            // }
-                            echo '<a href="' . buildQuery("/stores", ["salesman" => $salesman["salesman_code"]]) . '"><li>' . $salesman["name"] . '</a></li>';
+                            echo '<li><a href="' . buildQuery("/stores", ["salesman_id" => $salesman["salesman_code"], "salesman_name" => $salesman["name"]], false) . '">' . $salesman["name"] . '</a></li>';
                         }
                         ?>
                     </ul>
                 </div>
-                <div class="inputSearch">
-                    <input type="text" name="" id="searchVoiviodeships" placeholder="Województwo" class="inputSearch__header">
-                    <ul class="inputSearch__list" id="searchVoiviodeshipsField">
+                <div class="inputSearch" id="citiesFilter">
+                    <div class="inputSearch__badge"><?= $_GET["city"] ?? "" ?>
+                        <?php if (isset($_GET["city"])) { ?>
+                            <a href="<?= buildQuery("/stores", [], true, ["city"]) ?>"><svg xmlns="http://www.w3.org/2000/svg" height="12px" viewBox="0 -960 960 960" width="12px" fill="#000000">
+                                    <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                                </svg></a>
+                        <?php } ?>
+                    </div>
+                    <input type="text" name="searchCities" id="searchCities" placeholder="<?php echo $_GET["city"] ?? "Miasto" ?>" class="inputSearch__header">
+                    <ul class="inputSearch__list" id="searchCitiesField">
+                        <?php
+                        foreach ($cities as $city) {
+                            echo '<li><a href="' . buildQuery("/stores", ["city" => $city["city"]], false) . '">' . $city["city"] . '</a></li>';
+                        }
+                        ?>
                     </ul>
                 </div>
                 <form action="#" method="GET">
                     <input type="search" name="search" id="search">
+                    <?php
+                    foreach ($_GET as $key => $value) {
+                        if ($key !== "search") {
+                            echo '<input type="hidden" name="' . $key . '" value="' . $value . '">';
+                        }
+                    }
+                    ?>
                 </form>
             </fieldset>
-            <div class="row-flex align-center mh-2">
+            <div class="pagination col-2 row-flex ph-1">
                 <p>Rows per page:</p>
-                <p><?= $stores_per_page ?></p>
-                <p></p>
-
-                <?php
-
-                ?>
+                <form action="" id="rows_per_page_form">
+                    <select name="rows_per_page" id="rows_per_page">
+                        <option <?= $stores_per_page == 10 ? "selected" : "" ?> value="10">10</option>
+                        <option <?= $stores_per_page == 20 ? "selected" : "" ?> value="20">20</option>
+                        <option <?= $stores_per_page == 30 ? "selected" : "" ?> value="30">30</option>
+                        <option <?= $stores_per_page == 50 ? "selected" : "" ?> value="50">50</option>
+                    </select>
+                    <?php
+                    foreach ($_GET as $key => $value) {
+                        if ($key !== "rows_per_page") {
+                            echo '<input type="hidden" name="' . $key . '" value="' . $value . '">';
+                        }
+                    }
+                    ?>
+                </form>
+                <p><?= ($page_number - 1) * $stores_per_page + 1 ?>-<?php
+                                                                    if ($rows_number < $page_number * $stores_per_page) {
+                                                                        echo $rows_number . "  ";
+                                                                    } else {
+                                                                        echo $page_number * $stores_per_page;
+                                                                    }
+                                                                    ?> z <?= $rows_number
+                                                                            ?></p>
                 <?php
                 if ($page_number == 1) {
                     echo '<a href="#" class="pagination__left pagination__disabled">&lt;</a>';
@@ -53,22 +94,20 @@
                 ?>
                 <div class="pagination__current"><?= $page_number ?></div>
                 <a href="<?= buildQuery("/stores", ["page" => $page_number + 1]) ?>" class="pagination__right">&gt;</a>
-            </div>
 
+            </div>
         </div>
+
     </div>
 
     <div class="table col-12">
         <ul class="table__header table__row">
-
-            <li class="table__cell"><a href="<?= buildQuery("/stores", ["sortby" => "store_id", "sortorder" => $asc_or_desc]) ?>">ID <img src="<?= '/assets/media/arrow_' . $asc_or_desc . '' ?>.svg" alt=""> </a></li>
-            <li class="table__cell"><a href="<?= buildQuery("/stores", ["sortby" => "name", "sortorder" => $asc_or_desc]) ?>">name <img src="<?= '/assets/media/arrow_' . $asc_or_desc . '' ?>.svg" alt=""> </a></li>
-            <li class="table__cell"><a href="<?= buildQuery("/stores", ["sortby" => "city", "sortorder" => $asc_or_desc]) ?>">City <img src="<?= '/assets/media/arrow_' . $asc_or_desc . '' ?>.svg" alt=""> </a></li>
-            <li class="table__cell"><a href="<?= buildQuery("/stores", ["sortby" => "zip_code", "sortorder" => $asc_or_desc]) ?>">Kod pocztowy <img src="<?= '/assets/media/arrow_' . $asc_or_desc . '' ?>.svg" alt=""> </a></li>
-            <li class="table__cell"><a href="<?= buildQuery("/stores", ["sortby" => "street_name", "sortorder" => $asc_or_desc]) ?>">Ulica <img src="<?= '/assets/media/arrow_' . $asc_or_desc . '' ?>.svg" alt=""> </a></li>
-            <li class="table__cell"><a href="<?= buildQuery("/stores", ["sortby" => "salesman_id", "sortorder" => $asc_or_desc]) ?>">Kod handlowca <img src="<?= '/assets/media/arrow_' . $asc_or_desc . '' ?>.svg" alt=""> </a></li>
-
-
+            <li class="table__cell"><a href="<?= buildQuery("/stores", ["orderby" => "store_id", "order" => $asc_or_desc]) ?>">ID <img src="<?php echo ($orderBy == "store_id") ? '/assets/media/arrow_' . $asc_or_desc : '/assets/media/arrow_DESC'; ?>.svg" alt=""> </a></li>
+            <li class="table__cell"><a href="<?= buildQuery("/stores", ["orderby" => "name", "order" => $asc_or_desc]) ?>">name <img src="<?php echo ($orderBy == "name") ? '/assets/media/arrow_' . $asc_or_desc : '/assets/media/arrow_DESC'; ?>.svg" alt=""> </a></li>
+            <li class="table__cell"><a href="<?= buildQuery("/stores", ["orderby" => "city", "order" => $asc_or_desc]) ?>">City <img src="<?php echo ($orderBy == "city") ? '/assets/media/arrow_' . $asc_or_desc : '/assets/media/arrow_DESC'; ?>.svg" alt=""> </a></li>
+            <li class="table__cell"><a href="<?= buildQuery("/stores", ["orderby" => "zip_code", "order" => $asc_or_desc]) ?>">Kod pocztowy <img src="<?php echo ($orderBy == "zip_code") ? '/assets/media/arrow_' . $asc_or_desc : '/assets/media/arrow_DESC'; ?>.svg" alt=""> </a></li>
+            <li class="table__cell"><a href="<?= buildQuery("/stores", ["orderby" => "street_name", "order" => $asc_or_desc]) ?>">Ulica <img src="<?php echo ($orderBy == "street_name") ? '/assets/media/arrow_' . $asc_or_desc : '/assets/media/arrow_DESC'; ?>.svg" alt=""> </a></li>
+            <li class="table__cell"><a href="<?= buildQuery("/stores", ["orderby" => "salesman_id", "order" => $asc_or_desc]) ?>">Kod handlowca <img src="<?php echo ($orderBy == "salesman_id") ? '/assets/media/arrow_' . $asc_or_desc : '/assets/media/arrow_DESC'; ?>.svg" alt=""> </a></li>
             <li class="table__cell">Operacje</li>
         </ul>
         <div class="table__body" id="storesTable">
@@ -91,9 +130,11 @@
                                 <path d="m600-120-240-84-186 72q-20 8-37-4.5T120-170v-560q0-13 7.5-23t20.5-15l212-72 240 84 186-72q20-8 37 4.5t17 33.5v560q0 13-7.5 23T812-192l-212 72Zm-40-98v-468l-160-56v468l160 56Zm80 0 120-40v-474l-120 46v468Zm-440-10 120-46v-468l-120 40v474Zm440-458v468-468Zm-320-56v468-468Z" />
                             </svg>
                         </a>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" height="24" viewBox="0 -960 960 960" width="24">
-                            <path d="M200-200h50.461l409.463-409.463-50.461-50.461L200-250.461V-200Zm-59.999 59.999v-135.383l527.616-527.384q9.073-8.241 20.036-12.736 10.963-4.495 22.993-4.495 12.029 0 23.307 4.27 11.277 4.269 19.969 13.576l48.846 49.461q9.308 8.692 13.269 20.004 3.962 11.311 3.962 22.622 0 12.065-4.121 23.028-4.12 10.964-13.11 20.037l-527.384 527H140.001Zm620.384-570.153-50.231-50.231 50.231 50.231Zm-126.134 75.903-24.788-25.673 50.461 50.461-25.673-24.788Z" />
-                        </svg>
+                        <a href="/stores/edit?store_id=<?= $store["store_id"] ?>">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" height="24" viewBox="0 -960 960 960" width="24">
+                                <path d="M200-200h50.461l409.463-409.463-50.461-50.461L200-250.461V-200Zm-59.999 59.999v-135.383l527.616-527.384q9.073-8.241 20.036-12.736 10.963-4.495 22.993-4.495 12.029 0 23.307 4.27 11.277 4.269 19.969 13.576l48.846 49.461q9.308 8.692 13.269 20.004 3.962 11.311 3.962 22.622 0 12.065-4.121 23.028-4.12 10.964-13.11 20.037l-527.384 527H140.001Zm620.384-570.153-50.231-50.231 50.231 50.231Zm-126.134 75.903-24.788-25.673 50.461 50.461-25.673-24.788Z" />
+                            </svg>
+                        </a>
                         <form action="" method="POST">
                             <input type="hidden" name="id" value="<?= $store["store_id"] ?>">
                             <input type="hidden" name="_method" value="DELETE">

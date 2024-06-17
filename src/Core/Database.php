@@ -30,4 +30,8 @@ class Database
     {
         return $this->statement->fetch(PDO::FETCH_ASSOC);
     }
+    public function countRows()
+    {
+        return $this->statement->rowCount();
+    }
 }

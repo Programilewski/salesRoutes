@@ -16,4 +16,6 @@ $router->post("/salesmen", "controllers/salesmen/create.php");
 $router->delete("/stores", "controllers/stores/destroy.php");
 $router->post("/stores", "controllers/stores/create.php");
 $router->get("/salesmen/new", "controllers/salesmen/show.php");
-// $routes->get("stores/edit", "controllers/stores/show.php");
+$router->get("/stores/edit", "controllers/stores/show.php");
+$router->get("/salesmen/edit", "controllers/salesmen/show.php");
+$router->PATCH("/salesmen", "controllers/salesmen/update.php");

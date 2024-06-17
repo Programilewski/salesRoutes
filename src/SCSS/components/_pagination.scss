@@ -5,6 +5,10 @@
     align-items: center;
     justify-content: space-around;
     color:#333;
+    & p
+    {
+        white-space: nowrap;
+    }
     &__disabled
     {
         color:gray;

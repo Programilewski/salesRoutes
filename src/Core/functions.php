@@ -21,9 +21,17 @@ function media($path)
 {
     return base_path("public/assets/media/" . $path);
 }
-function buildQuery($prefix, $params)
+function buildQuery($prefix, $params = [], $preserveSearch = true, $toRemove = [])
 {
+
+
     $arrays = array_merge($_GET, $params);
+    foreach ($toRemove as $key) {
+        unset($arrays[$key]);
+    }
+    if (!$preserveSearch) {
+        unset($arrays["search"]);
+    }
     return $prefix . "?" . http_build_query($arrays);
 }
 function partials($name, $attributes = [])

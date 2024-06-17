@@ -77,3 +77,6 @@ if(params.size>0)
         map.panTo(currentMarker.getLatLng());
     }
 
+
+
+

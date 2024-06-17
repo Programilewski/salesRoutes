@@ -39,7 +39,7 @@ select, input[type="search"]
 {
     padding:.5rem 0.25rem;
     width: fit-content;
-    color:rgb(255, 255, 255); 
+    color:rgb(0, 0, 0); 
     border:none;
     font-family: "Raleway", sans-serif;
     border:1px solid gray;
@@ -90,4 +90,8 @@ a
 {
     color:white;
     text-decoration: none;
+}
+.searchResults
+{
+    padding-bottom:.5rem;
 }
