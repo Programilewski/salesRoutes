@@ -1,62 +1,64 @@
-<?php require __DIR__ . "/../partials/head.php"; ?>
-<nav class="mainNavigation">
+<?php require __DIR__ . "/../partials/head.php";
+require __DIR__ . "/../partials/sidebar.php";
+?>
 
-    <?php
-    $title = "Handlowcy";
-    $icon = "person.svg";
-    require __DIR__ . "/../partials/heading.php"; ?>
-    <?php require __DIR__ . "/../partials/links.php" ?>
-</nav>
 <main class="mainContent">
-
-    <div class="table">
-        <ul class="table__header table__row">
-            <li class="table__cell">ID</li>
-            <li class="table__cell">Imię</li>
-            <li class="table__cell">Nazwisko</li>
-            <li class="table__cell">Kody aut</li>
-            <li class="table__cell">Tablica rejestracyjna</li>
-            <li class="table__cell">Kod handlowca</li>
-            <li class="table__cell">Kolor</li>
-            <li class="table__cell">Operacje</li>
-        </ul>
-        <div class="table__body" id="salesmen_table">
-            <?php
-            foreach ($data as $salesman) {
-            ?>
-                <ul class="table__row">
-                    <li class="table__cell"><?= $salesman["salesman_id"] ?></li>
-                    <li class="table__cell"><?= htmlspecialchars($salesman["name"]) ?></li>
-                    <li class="table__cell"><?= $salesman["surname"] ?></li>
-                    <li class="table__cell"><?= $salesman["car_id"] ?></li>
-                    <li class="table__cell"><?= $salesman["plates_number"] ?></li>
-                    <li class="table__cell"><?= $salesman["salesman_code"] ?></li>
-                    <li class="table__cell"><input type="color" value='#<?= $salesman["color"] ?>' disabled></li>
-                    <li class="table__cell">
-
-                        <a href="<?= "/salesmen/edit?salesman_id=" . $salesman['salesman_id'] ?>">
+    <div class="row-grid g-1">
+        <?php
+        foreach ($data as $salesman) {
+        ?>
+            <div class="card col-4 col-sm-4 col-md-4">
+                <div class="card__icon">
+                    <svg width="40" height="34" viewBox="0 0 40 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.21839 34C2.3046 34 1.53966 33.6985 0.923564 33.0954C0.307855 32.492 0 31.7427 0 30.8477V9.23179C0 8.33675 0.307855 7.58752 0.923564 6.98407C1.53966 6.381 2.3046 6.07947 3.21839 6.07947H13.7931V3.15232C13.7931 2.25728 14.101 1.50805 14.7167 0.904603C15.3328 0.301535 16.0977 0 17.0115 0H22.9885C23.9023 0 24.6672 0.301535 25.2833 0.904603C25.899 1.50805 26.2069 2.25728 26.2069 3.15232V6.07947H36.7816C37.6954 6.07947 38.4603 6.381 39.0764 6.98407C39.6921 7.58752 40 8.33675 40 9.23179V30.8477C40 31.7427 39.6921 32.492 39.0764 33.0954C38.4603 33.6985 37.6954 34 36.7816 34H3.21839ZM15.1724 6.07947H24.8276V3.15232C24.8276 2.70199 24.636 2.28918 24.2529 1.91391C23.8697 1.53863 23.4483 1.35099 22.9885 1.35099H17.0115C16.5517 1.35099 16.1303 1.53863 15.7471 1.91391C15.364 2.28918 15.1724 2.70199 15.1724 3.15232V6.07947ZM38.6207 21.8411H23.5632V23.0862C23.5632 23.5197 23.4113 23.8895 23.1075 24.1957C22.8033 24.5023 22.4182 24.6556 21.9523 24.6556H18.0374C17.596 24.6556 17.219 24.5008 16.9063 24.1912C16.5933 23.8816 16.4368 23.511 16.4368 23.0795V21.8411H1.37931V30.8477C1.37931 31.298 1.57088 31.7108 1.95402 32.0861C2.33716 32.4614 2.75862 32.649 3.21839 32.649H36.7816C37.2414 32.649 37.6628 32.4614 38.046 32.0861C38.4291 31.7108 38.6207 31.298 38.6207 30.8477V21.8411ZM17.8161 23.3046H22.1839V19.0265H17.8161V23.3046ZM1.37931 20.4901H16.4368V19.2443C16.4368 18.7865 16.595 18.4105 16.9115 18.1163C17.228 17.8224 17.6067 17.6755 18.0477 17.6755H21.9626C22.4289 17.6755 22.8123 17.8243 23.1126 18.1219C23.413 18.4191 23.5632 18.7957 23.5632 19.2517V20.4901H38.6207V9.23179C38.6207 8.78146 38.4291 8.36865 38.046 7.99338C37.6628 7.6181 37.2414 7.43046 36.7816 7.43046H3.21839C2.75862 7.43046 2.33716 7.6181 1.95402 7.99338C1.57088 8.36865 1.37931 8.78146 1.37931 9.23179V20.4901Z" fill="black" />
+                    </svg>
+                </div>
+                <div class="card__data">
+                    <h3 class="card__title"><?= $salesman["name"] . " " . $salesman["surname"] ?></h3>
+                    <dl class="card__details">
+                        <dt class="card__key">Kod auta:</dt>
+                        <dd class="card__value"><?= $salesman["car_id"] ?></dd>
+                    </dl>
+                    <dl class="card__details">
+                        <dt class="card__key">Tablice Rejestracyjne:</dt>
+                        <dd class="card__value"><?= $salesman["plates_number"] ?></dd>
+                    </dl>
+                    <dl class="card__details">
+                        <dt class="card__key">Kod handlowca:</dt>
+                        <dd class="card__value"><?= $salesman["salesman_code"] ?></dd>
+                    </dl>
+                </div>
+                <div class="card__controls">
+                    <a href="">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" height="24" viewBox="0 -960 960 960" width="24">
+                            <path d="m600-120-240-84-186 72q-20 8-37-4.5T120-170v-560q0-13 7.5-23t20.5-15l212-72 240 84 186-72q20-8 37 4.5t17 33.5v560q0 13-7.5 23T812-192l-212 72Zm-40-98v-468l-160-56v468l160 56Zm80 0 120-40v-474l-120 46v468Zm-440-10 120-46v-468l-120 40v474Zm440-458v468-468Zm-320-56v468-468Z" />
+                        </svg>
+                    </a>
+                    <a href="/salesmen/edit?salesman_id=<?= $salesman["salesman_id"] ?>">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" height="24" viewBox="0 -960 960 960" width="24">
+                            <path d="M200-200h50.461l409.463-409.463-50.461-50.461L200-250.461V-200Zm-59.999 59.999v-135.383l527.616-527.384q9.073-8.241 20.036-12.736 10.963-4.495 22.993-4.495 12.029 0 23.307 4.27 11.277 4.269 19.969 13.576l48.846 49.461q9.308 8.692 13.269 20.004 3.962 11.311 3.962 22.622 0 12.065-4.121 23.028-4.12 10.964-13.11 20.037l-527.384 527H140.001Zm620.384-570.153-50.231-50.231 50.231 50.231Zm-126.134 75.903-24.788-25.673 50.461 50.461-25.673-24.788Z" />
+                        </svg>
+                    </a>
+                    <form class="formIcon" action="" method="POST">
+                        <input type="hidden" name="id" value="<?= $store["store_id"] ?>">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" height="24" viewBox="0 -960 960 960" width="24">
-                                <path d="M200-200h50.461l409.463-409.463-50.461-50.461L200-250.461V-200Zm-59.999 59.999v-135.383l527.616-527.384q9.073-8.241 20.036-12.736 10.963-4.495 22.993-4.495 12.029 0 23.307 4.27 11.277 4.269 19.969 13.576l48.846 49.461q9.308 8.692 13.269 20.004 3.962 11.311 3.962 22.622 0 12.065-4.121 23.028-4.12 10.964-13.11 20.037l-527.384 527H140.001Zm620.384-570.153-50.231-50.231 50.231 50.231Zm-126.134 75.903-24.788-25.673 50.461 50.461-25.673-24.788Z" />
+                                <path d="M292.309-140.001q-29.923 0-51.115-21.193-21.193-21.192-21.193-51.115V-720h-40v-59.999H360v-35.384h240v35.384h179.999V-720h-40v507.691q0 30.308-21 51.308t-51.308 21H292.309ZM680-720H280v507.691q0 5.385 3.462 8.847 3.462 3.462 8.847 3.462h375.382q4.616 0 8.463-3.846 3.846-3.847 3.846-8.463V-720ZM376.155-280h59.999v-360h-59.999v360Zm147.691 0h59.999v-360h-59.999v360ZM280-720v520-520Z" />
                             </svg>
-                        </a>
-                        <form action="" method="POST">
-                            <input type="hidden" name="id" value="<?= $salesman["salesman_id"] ?>">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" height="24" viewBox="0 -960 960 960" width="24">
-                                    <path d="M292.309-140.001q-29.923 0-51.115-21.193-21.193-21.192-21.193-51.115V-720h-40v-59.999H360v-35.384h240v35.384h179.999V-720h-40v507.691q0 30.308-21 51.308t-51.308 21H292.309ZM680-720H280v507.691q0 5.385 3.462 8.847 3.462 3.462 8.847 3.462h375.382q4.616 0 8.463-3.846 3.846-3.847 3.846-8.463V-720ZM376.155-280h59.999v-360h-59.999v360Zm147.691 0h59.999v-360h-59.999v360ZM280-720v520-520Z" />
-                                </svg>
-                            </button>
-                        </form>
-                    </li>
-                </ul>
-            <?php
-            }
-            ?>
+                        </button>
+                    </form>
 
-
+                </div>
+            </div>
+        <?php
+        }
+        ?>
+        <div class="card col-4 col-sm-4 col-md-4">
+            <div class="card__icon">
+                <a href="/salesmen/new" class="card__addNew">+</a>
+            </div>
         </div>
-    </div>
 </main>
 
 </body>

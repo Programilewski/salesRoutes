@@ -2,6 +2,10 @@ const allSalesmen = document.querySelectorAll("#searchSalesmanField a");
 const inputSearchItems = document.querySelectorAll(".inputSearch");
 const allSalesmenList = document.querySelector("#searchSalesmanField");
 const salesmenInput = document.querySelector("#searchSalesman");
+const popupFiltersIcon = document.querySelector("#popupFiltersIcon");
+const popupFiltersContent = document.querySelector("#popupFiltersContent");
+
+
 
 inputSearchItems.forEach((input)=>{
     input.addEventListener("input",(e)=>{
@@ -17,7 +21,7 @@ inputSearchItems.forEach((input)=>{
             else
             {
                 link.style.display = "none";
-                inputTable.style.border = "1px solid transparent";
+                inputTable.style.border = "none";
                 
             }
         })
@@ -40,7 +44,7 @@ inputSearchItems.forEach((input)=>{
         if(!isClickInside)
         {
             inputTableLinks.forEach((link)=>{
-                inputTable.style.border = "1px solid transparent";
+                inputTable.style.border = "none";
                 link.style.display = "none";
             })
         }

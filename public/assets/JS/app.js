@@ -8,6 +8,8 @@ datePicker.addEventListener("click",function(e){
     e.target.showPicker();
 })
 
+
+
 const salesmenButtons = document.querySelectorAll(".radioInputGroup__inputContainer input");
 salesmenButtons.forEach((button)=>{
     button.addEventListener("click",(e)=>{
@@ -76,7 +78,6 @@ if(params.size>0)
         const currentMarker = L.marker([latitude,longitude]).addTo(map);
         map.panTo(currentMarker.getLatLng());
     }
-
 
 
 

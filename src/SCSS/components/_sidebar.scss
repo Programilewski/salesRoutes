@@ -1,6 +1,8 @@
 @use "../utils";
 .mainNavigation
 {
+    z-index: 10000;
+
     color:white;
     display: flex;
     flex-direction: column;
@@ -15,9 +17,47 @@
     {
         white-space: nowrap;
     }
+    @media screen and (max-width: 960px)
+    {
+        transition: .1s;
+        position: absolute;
+        transform: scaleX(0);
+        width: 0px;
+        min-width: 0px;
+        padding:0;
+        transform-origin: left;
+        &--visible
+        {
+            width: utils.$navWidth;
+            transform: scaleX(1);
+        }
+    }
 }
 .controls
 {
     min-width: utils.$navWidth;
     background-color: #101218;
+}
+.menu__toggler
+{
+    display: none;
+    @media screen and (max-width: 960px){
+        display: grid;
+        border-radius: .5rem;
+        cursor: pointer;
+        place-items: center;
+        background-color: #101218;
+        position: absolute;
+        left:1rem;
+        top:1rem;
+        z-index: 10000;
+        width: 50px;
+        height: 50px;
+        transition: .1s;
+        &--moved
+        {
+            left: calc(utils.$navWidth + 1rem);
+        }
+    }
+
 }

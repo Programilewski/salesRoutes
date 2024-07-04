@@ -1,13 +1,9 @@
-<?php require __DIR__ . "/../partials/head.php"; ?>
+<?php require __DIR__ . "/../partials/head.php";
+require __DIR__ . "/../partials/sidebar.php";
 
-<nav class="mainNavigation">
+?>
 
-    <?php
-    $title = "Ścieżki";
-    $icon = "routes.svg";
-    require __DIR__ . "/../partials/heading.php"; ?>
-    <?php require __DIR__ . "/../partials/links.php" ?>
-</nav>
+
 <main class="mainContent">
     <div class="row-flex justify-end">
         <div class="pagination col-2 mv-1 row-flex">

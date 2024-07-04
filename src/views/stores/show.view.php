@@ -1,14 +1,6 @@
-<?php require __DIR__ . "/../partials/head.php"; ?>
-
-<nav class="mainNavigation">
-    <div class="controls">
-        <?php
-        $title = "Nowy sklep";
-        $icon = "store.svg";
-        require __DIR__ . "/../partials/heading.php"; ?>
-    </div>
-    <?php require __DIR__ . "/../partials/links.php" ?>
-</nav>
+<?php require __DIR__ . "/../partials/head.php";
+require __DIR__ . "/../partials/sidebar.php";
+?>
 <main class="mainContent container p-3 d-flex">
     <form class="col-5 form form--black" method="POST" action="/stores">
         <div class="mb-2 column-flex align-start form--w25">
