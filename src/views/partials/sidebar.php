@@ -1,4 +1,5 @@
 <nav class="mainNavigation" id="mainNavigation">
+    <img class="mainNavigation__logo" src="/assets/media/Logo_sales_routes.png" alt="">
     <?php
     require __DIR__ . "/../partials/links.php"; ?>
 </nav>

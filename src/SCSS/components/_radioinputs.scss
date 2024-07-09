@@ -1,3 +1,5 @@
+@use "../utils";
+
 .radioInputGroup
 {
     overflow: hidden;
@@ -11,6 +13,10 @@
         border:1px solid #0055be;
         color:white;
         background-color: #583DFF;
+        @media screen and (max-width: 960px){
+            scroll-snap-align: start;
+            border:none;
+        }
     }
     & legend
     {
@@ -18,7 +24,7 @@
     }
     &__inputContainer
     {
-        user-select: none; /* Disable text selection on label */
+        user-select: none; 
         background-color: #101218;
         box-sizing: border-box;
         border:1px solid rgb(51, 51, 51);
@@ -35,6 +41,9 @@
         &:hover
         {
             background-color: rgb(51, 51, 51);
+            @media screen and (max-width: 960px){
+                background-color: transparent;
+            }
         }
         & label{
             font-size: .75rem;
@@ -48,12 +57,29 @@
             font-weight: 700;
             width: 100%;
             justify-content: center;
-            user-select: none; /* Disable text selection on label */
+            user-select: none; 
         }
         & input{
             display: none;
-            user-select: none; /* Disable text selection on label */
+            user-select: none; 
 
+        }
+        @media screen and (max-width: 960px){
+            min-width: 8rem;
+        }
+    }
+    @media screen and (max-width: 960px){
+        display: flex;
+        flex-shrink: 0;
+        overflow-x: scroll;
+        gap:1rem;
+        width: 90%;
+        margin: 0 auto;
+        &::-webkit-scrollbar
+        {
+            height: 5px;
+            margin:0 .5rem;
+            padding: 0 .5rem;
         }
     }
 }

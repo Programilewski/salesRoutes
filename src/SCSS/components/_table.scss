@@ -1,13 +1,14 @@
+@use "../utils";
 
 .table
 {
     border-radius: 1rem 1rem 0 0;
     height: 90%;
     font-size: .875rem;
-    color:#000000;
+    color:utils.$dark;
     width: 100%;
-    background-color: white;
-    border:1px solid #aaaaaa;
+    background-color: utils.$light;
+    border:1px solid utils.$searedNeutral;
     box-sizing: border-box;
     display: grid;
     grid-template-rows: 1fr 18fr;
@@ -20,12 +21,12 @@
     }
     &__row
     {
-        background-color: white;
+        background-color: utils.$light;
         padding:.75rem;
         display: grid;
         gap:.5rem;
         grid-template-columns: 7fr 48fr 5fr;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid utils.$neutralAccent;
         @media screen and (max-width: 960px){
             align-items: center;
             margin:1rem 0.5rem;
@@ -57,11 +58,11 @@
     &__header
     {
         border-radius: 1rem 1rem 0 0 ;
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid utils.$dark;
         box-sizing: border-box;
         padding:1rem 2rem 1rem 1rem;
-        background-color: #101218;
-        color:white;
+        background-color: utils.$darkAccent;
+        color:utils.$light;
 
         & .table__cell
         {
@@ -97,19 +98,19 @@
             }
             &::-webkit-scrollbar-track
             {
-                background-color: #181818;
+                background-color: utils.$darkAccent;
                 border-radius: 1rem;
     
             }
             &::-webkit-scrollbar-thumb
             {
-                background-color: #b5c5ff;
+                background-color: utils.$lightAccent;
                 border-radius: 1rem;
             }
             & .table__cell
             {
             border-radius: .5rem;
-            background-color: #000000;
+            background-color: utils.$dark;
             width: fit-content;
             padding:.25rem .5rem;
                 &:last-of-type
@@ -118,7 +119,7 @@
                 }
                 &--active
                 {
-                background-color: #583DFF;
+                background-color: utils.$mainAccent;
                 }
             }
             & .table__details
@@ -143,13 +144,13 @@
         }
         &::-webkit-scrollbar-track
         {
-            background-color: #e0e0e0;
+            background-color: utils.$neutralAccent;
             border-radius: 1rem;
 
         }
         &::-webkit-scrollbar-thumb
         {
-            background-color: #b5c5ff;
+            background-color: utils.$lightAccent;
             border-radius: 1rem;
         }
     }
@@ -160,7 +161,6 @@
         align-items: center;
         font-weight: 500;
         text-transform: lowercase;
-        // word-break: break-word;
         &:last-of-type
         {
             text-align: end;

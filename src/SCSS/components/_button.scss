@@ -1,67 +1,65 @@
-.button
-{
-    min-width:5rem;
-    height: fit-content;
-    border:none;
-    color:white;
-    font-weight: 700;
-    cursor: pointer;
-    transition: .2s;
-    border-radius: .5rem;
-    &--small
-    {
-        padding:0.5rem 1rem;
-        font-size: 0.875rem;
+@use "../utils";
+.button {
+min-width: 5rem;
+height: fit-content;
+border: none;
+border-radius: .5rem;
+color: utils.$light;
+font-weight: 700;
+cursor: pointer;
+transition: .2s;Copy&--small {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+&--medium {
+    padding: 0.75rem 1.5rem;
+    font-size: .875rem;
+}
+
+&--large {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+}
+
+&--default {
+    background-color: utils.$lightAccent;
+}
+
+&--fatal {
+    border: 1px solid utils.$fatal;
+    background-color: transparent;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0px 3px 6px utils.$fatal;
+        color: utils.$fatal;
     }
-    &--medium
-    {
-        padding:0.75rem 1.5rem;
-        font-size: .875rem;
+}
+
+&--warning {
+    border: 1px solid #ffac1e;
+    background-color: transparent;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0px 3px 6px utils.$warning;
+        color: utils.$warning;
     }
-    &--large
-    {
-        padding:1rem 2rem;
-        font-size: 1.125rem;
+}
+
+&--full-width {
+    width: 100%;
+}
+
+&--info {
+    border: 1px solid utils.$lightAccent;
+    background-color: transparent;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0px 3px 6px utils.$lightAccent;
+        color: utils.$lightAccent;
     }
-    &--default
-    {
-        background-color: #909CFF;
-    }
-    &--fatal
-    {
-        border:1px solid rgb(255,71,71);
-        background-color: transparent;
-        &:hover
-        {
-            box-shadow: 0px 3px 6px rgb(255, 71, 71);
-            transform: translateY(-2px);
-            color:rgb(255, 71, 71);
-        }
-    }
-    &--warning
-    {
-        border:1px solid #ffac1e;
-        background-color: transparent;
-        &:hover
-        {
-            box-shadow: 0px 3px 6px #ffbf50;
-            transform: translateY(-2px);
-            color:#ffbf50;
-        }
-    }    
-    &--full-width
-    {
-        width: 100%;
-    }
-    &--info
-    {
-        border:1px solid #4770FF;
-        background-color: transparent;
-        &:hover
-        {
-            box-shadow: 0px 3px 6px #4770FF;
-            transform: translateY(-2px);
-            color:#4770FF;
-        }
-    }
+}
 }

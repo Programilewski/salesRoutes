@@ -1,18 +1,22 @@
 @use "../utils";
 .mainNavigation
 {
-    z-index: 10000;
-
-    color:white;
+    z-index: 1000000;
+    color:utils.$light;
     display: flex;
     flex-direction: column;
-    // justify-content: space-between;
     gap:2rem;
     box-sizing: border-box;
     padding:1rem;
-    background-color: #101218;
+    background-color: utils.$darkAccent;
     min-width: utils.$navWidth;
+    max-width: utils.$navWidth;
     height: 100%;
+    &__logo
+    {
+        width: 100%;
+        margin:1rem 0;
+    }
     & h3
     {
         white-space: nowrap;
@@ -24,7 +28,7 @@
         transform: scaleX(0);
         width: 0px;
         min-width: 0px;
-        padding:0;
+        padding:1rem;
         transform-origin: left;
         &--visible
         {
@@ -36,7 +40,7 @@
 .controls
 {
     min-width: utils.$navWidth;
-    background-color: #101218;
+    background-color: utils.$darkAccent;
 }
 .menu__toggler
 {
@@ -46,7 +50,7 @@
         border-radius: .5rem;
         cursor: pointer;
         place-items: center;
-        background-color: #101218;
+        background-color: utils.$darkAccent;
         position: absolute;
         left:1rem;
         top:1rem;

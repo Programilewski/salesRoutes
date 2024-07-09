@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Do</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
     <link rel="stylesheet" href="/assets/CSS/reset.css">
     <link rel="stylesheet" href="/assets/CSS/normalize.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">

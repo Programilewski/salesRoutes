@@ -1,46 +1,46 @@
-.card
-{
-    overflow: hidden;
-    background-color: white;
-    display: grid;
-    grid-template-columns: 1fr 8fr 1fr;
-    align-items: center;
-    padding:1rem;
-    gap:1rem;
-    border-radius: .5rem;
-    box-shadow: -2px 2px 3px 3px #00000010;
-    &__title
-    {
-        margin-bottom: .5rem;
-        font-size: 1rem;
-    }   
-    &__details
-    {
-        margin:.5rem 0;
-        display: flex;
-        align-items: flex-start;
-        font-size: .75rem;
-        margin-right: 2rem;
-        & dt{
-            margin-right: .25rem;
-            font-weight: 700;
-        }
-        & *{
-            white-space: nowrap;
-        }
-    }
-    &__controls
-    {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-        & a, form
-        {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+@use "../utils";
+.card {
+display: grid;
+grid-template-columns: 1fr 8fr 1fr;
+align-items: center;
+overflow: hidden;
+padding: 1rem;
+gap: 1rem;
+border-radius: .5rem;
+background-color: utils.$light;
+box-shadow: -2px 2px 3px 3px #00000010;
+&__title {
+    margin-bottom: .5rem;
+    font-size: 1rem;
+}
+
+&__details {
+    display: flex;
+    align-items: flex-start;
+    margin: .5rem 0;
+    margin-right: 2rem;
+    font-size: .75rem;
+
+    & dt {
+        margin-right: .25rem;
+        font-weight: 700;
     }
 
+    & * {
+        white-space: nowrap;
+    }
+}
+
+&__controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+
+    & a, form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
 }
