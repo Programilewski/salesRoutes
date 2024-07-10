@@ -59,7 +59,7 @@
                                 <?php } ?>
                             </div>
                             <form action="#" method="GET">
-                                <input type="search" name="search" id="search">
+                                <input type="search" name="search" id="search" placeholder="Szukaj">
                                 <?php
                                 foreach ($_GET as $key => $value) {
                                     if ($key !== "search") {
@@ -74,22 +74,25 @@
                         </div> -->
 
                     </fieldset>
-                    <p>Rows per page:</p>
-                    <form action="" id="rows_per_page_form">
-                        <select name="rows_per_page" id="rows_per_page">
-                            <option <?= $stores_per_page == 10 ? "selected" : "" ?> value="10">10</option>
-                            <option <?= $stores_per_page == 20 ? "selected" : "" ?> value="20">20</option>
-                            <option <?= $stores_per_page == 30 ? "selected" : "" ?> value="30">30</option>
-                            <option <?= $stores_per_page == 50 ? "selected" : "" ?> value="50">50</option>
-                        </select>
-                        <?php
-                        foreach ($_GET as $key => $value) {
-                            if ($key !== "rows_per_page") {
-                                echo '<input type="hidden" name="' . $key . '" value="' . $value . '">';
+                    <fieldset class="rows_per_page">
+                        <p>Rows per page:</p>
+                        <form action="" id="rows_per_page_form">
+                            <select name="rows_per_page" id="rows_per_page">
+                                <option <?= $stores_per_page == 10 ? "selected" : "" ?> value="10">10</option>
+                                <option <?= $stores_per_page == 20 ? "selected" : "" ?> value="20">20</option>
+                                <option <?= $stores_per_page == 30 ? "selected" : "" ?> value="30">30</option>
+                                <option <?= $stores_per_page == 50 ? "selected" : "" ?> value="50">50</option>
+                            </select>
+                            <?php
+                            foreach ($_GET as $key => $value) {
+                                if ($key !== "rows_per_page") {
+                                    echo '<input type="hidden" name="' . $key . '" value="' . $value . '">';
+                                }
                             }
-                        }
-                        ?>
-                    </form>
+                            ?>
+                        </form>
+                    </fieldset>
+
                 </div>
             </div>
             <div class="pagination col-2 row-flex ph-1">

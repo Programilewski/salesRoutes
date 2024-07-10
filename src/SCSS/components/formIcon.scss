@@ -1,12 +1,11 @@
 @use "../utils";
 
-.formIcon
-{
+.formIcon {
     background-color: transparent;
-    & button
-    {
+
+    & button {
         background-color: transparent;
-        border:none;
+        border: none;
         cursor: pointer;
     }
 }

@@ -1,172 +1,159 @@
 @use "../utils";
 
-.table
-{
+.table {
     border-radius: 1rem 1rem 0 0;
     height: 90%;
-    font-size: .875rem;
-    color:utils.$dark;
+    font-size: 0.875rem;
+    color: utils.$dark;
     width: 100%;
     background-color: utils.$light;
-    border:1px solid utils.$searedNeutral;
+    border: 1px solid utils.$searedNeutral;
     box-sizing: border-box;
     display: grid;
     grid-template-rows: 1fr 18fr;
     box-shadow: 2px 4px 4px 0 #0000001f;
-    @media screen and (max-width: 960px){
+
+    @media screen and (max-width: 960px) {
         box-shadow: none;
         background-color: transparent;
-        border:none;
+        border: none;
         border-radius: 0;
     }
-    &__row
-    {
+
+    &__row {
         background-color: utils.$light;
-        padding:.75rem;
+        padding: 0.75rem;
         display: grid;
-        gap:.5rem;
+        gap: 0.5rem;
         grid-template-columns: 7fr 48fr 5fr;
         border-bottom: 1px solid utils.$neutralAccent;
-        @media screen and (max-width: 960px){
+
+        @media screen and (max-width: 960px) {
             align-items: center;
-            margin:1rem 0.5rem;
+            margin: 1rem 0.5rem;
             border-radius: 1rem;
         }
     }
-    &__details
-    {
+
+    &__details {
         display: grid;
         grid-template-columns: 3fr 1fr 1fr 2fr 1fr;
-        gap:.5rem;
+        gap: 0.5rem;
         width: 100%;
-    @media screen and (max-width: 960px)
-    {
-        grid-template-rows:2fr 1fr 1fr 1fr 1fr;   
-        grid-template-columns: 1fr;
-        & .table__cell:first-of-type
-        {
-            font-weight: 700;
-            font-size: 1rem;
-        }
-        & .table__cell:last-of-type
-        {
-            justify-content: flex-start;
-            text-align: start;
+
+        @media screen and (max-width: 960px) {
+            grid-template-rows: 2fr 1fr 1fr 1fr 1fr;
+            grid-template-columns: 1fr;
+
+            & .table__cell:first-of-type {
+                font-weight: 700;
+                font-size: 1rem;
+            }
+
+            & .table__cell:last-of-type {
+                justify-content: flex-start;
+                text-align: start;
+            }
         }
     }
-    }
-    &__header
-    {
-        border-radius: 1rem 1rem 0 0 ;
+
+    &__header {
+        border-radius: 1rem 1rem 0 0;
         border-bottom: 1px solid utils.$dark;
         box-sizing: border-box;
-        padding:1rem 2rem 1rem 1rem;
+        padding: 1rem 2rem 1rem 1rem;
         background-color: utils.$darkAccent;
-        color:utils.$light;
+        color: utils.$light;
 
-        & .table__cell
-        {
+        & .table__cell {
             font-weight: 700;
             display: flex;
             align-items: center;
-            & a
-            {
+
+            & a {
                 display: flex;
                 align-items: center;
-
             }
-            &:last-of-type
-            {
+
+            &:last-of-type {
                 text-align: end;
                 display: flex;
                 justify-content: flex-end;
             }
         }
-        @media screen and (max-width: 960px){
+
+        @media screen and (max-width: 960px) {
             border-radius: 0;
             background-color: transparent;
             overflow-x: scroll;
             width: 100%;
             height: max-content;
             display: flex;
-            padding:0;
-            border:none;
-            &::-webkit-scrollbar
-            {
+            padding: 0;
+            border: none;
+
+            &::-webkit-scrollbar {
                 width: 0;
                 height: 0;
             }
-            &::-webkit-scrollbar-track
-            {
-                background-color: utils.$darkAccent;
-                border-radius: 1rem;
-    
-            }
-            &::-webkit-scrollbar-thumb
-            {
-                background-color: utils.$lightAccent;
-                border-radius: 1rem;
-            }
-            & .table__cell
-            {
-            border-radius: .5rem;
-            background-color: utils.$dark;
-            width: fit-content;
-            padding:.25rem .5rem;
-                &:last-of-type
-                {
+
+            & .table__cell {
+                border-radius: 0.5rem;
+                background-color: utils.$dark;
+                width: fit-content;
+                padding: 0.25rem 0.5rem;
+
+                &:last-of-type {
                     display: none;
                 }
-                &--active
-                {
-                background-color: utils.$mainAccent;
+
+                &--active {
+                    background-color: utils.$mainAccent;
                 }
             }
-            & .table__details
-            {
+
+            & .table__details {
                 display: flex;
             }
-            }
+        }
     }
-    &__body
-    {
-        
+
+    &__body {
         overflow-y: scroll;
-    @media screen and (max-width: 960px)
-    {
-    height: 800px;
-    }
-        &::-webkit-scrollbar
-        {
+
+        @media screen and (max-width: 960px) {
+            height: 800px;
+        }
+
+        &::-webkit-scrollbar {
             width: 8px;
-            margin:0 .5rem;
+            margin: 0 .5rem;
             padding: 0 .5rem;
         }
-        &::-webkit-scrollbar-track
-        {
+
+        &::-webkit-scrollbar-track {
             background-color: utils.$neutralAccent;
             border-radius: 1rem;
-
         }
-        &::-webkit-scrollbar-thumb
-        {
+
+        &::-webkit-scrollbar-thumb {
             background-color: utils.$lightAccent;
             border-radius: 1rem;
         }
     }
 
-    &__cell
-    {
+    &__cell {
         display: flex;
         align-items: center;
         font-weight: 500;
         text-transform: lowercase;
-        &:last-of-type
-        {
+
+        &:last-of-type {
             text-align: end;
             display: flex;
             justify-content: flex-end;
-            & img{
+
+            & img {
                 width: 24px;
             }
         }

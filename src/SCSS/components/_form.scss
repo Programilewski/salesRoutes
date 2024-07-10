@@ -1,64 +1,66 @@
 @use "../utils";
+
 .form {
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 1rem;
-color: utils.$dark;
-Copy&--w25 {
-    width: 25%;
-    max-width: 25%;
-}
-
-&--w50 {
-    width: 50%;
-    max-width: 50%;
-}
-
-&--w75 {
-    width: 75%;
-    max-width: 75%;
-}
-
-&--w100 {
-    width: 100%;
-    max-width: 100%;
-}
-
-&--m5 {
-    margin: 5rem;
-}
-
-&--white {
-    color: utils.$light;
-}
-
-&--black {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
     color: utils.$dark;
-}
 
-&-control {
-    width: 100%;
-    padding: 1rem .5rem;
-    border: none;
-    border-radius: .25rem;
-    box-sizing: border-box;
-    color: utils.$dark;
-    font-size: .875rem;
+    &--w25 {
+        width: 25%;
+        max-width: 25%;
+    }
 
-    &::selection {
-        background-color: utils.$light;
+    &--w50 {
+        width: 50%;
+        max-width: 50%;
+    }
+
+    &--w75 {
+        width: 75%;
+        max-width: 75%;
+    }
+
+    &--w100 {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    &--m5 {
+        margin: 5rem;
+    }
+
+    &--white {
+        color: utils.$light;
+    }
+
+    &--black {
         color: utils.$dark;
     }
-}
 
-&-label {
-    margin-bottom: .5rem;
-    font-weight: 700;
-    font-size: .875rem;
-}
+    &-control {
+        width: 100%;
+        padding: 1rem 0.5rem;
+        border: none;
+        border-radius: 0.25rem;
+        box-sizing: border-box;
+        color: utils.$dark;
+        font-size: 0.875rem;
 
-&__inputContainer {
-    width: 100%;
-}
+        &::selection {
+            background-color: utils.$light;
+            color: utils.$dark;
+        }
+    }
+
+    &-label {
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+        font-size: 0.875rem;
+    }
+
+    &__inputContainer {
+        width: 100%;
+    }
 }

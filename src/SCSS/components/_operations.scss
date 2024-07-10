@@ -1,14 +1,15 @@
 @use "../utils";
 
-.operations
-{
-    display:flex;
-    @media screen and (max-width: 960px){
+.operations {
+    display: flex;
+
+    @media screen and (max-width: 960px) {
         flex-direction: column;
     }
-    & *{
+
+    & * {
         background-color: transparent;
-        border:none;
+        border: none;
         cursor: pointer;
     }
 }

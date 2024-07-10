@@ -1,43 +1,47 @@
 @use "../utils";
-.datePicker {
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-width: 100%;
-gap: .5rem;
-border-radius: .5rem;&__input {
-    box-sizing: border-box;
-    width: calc(100% - 1rem);
-    margin: 0 auto;
-    padding: .75rem;
-    border: none;
-    border-radius: .5rem;
-    background-color: utils.$mainAccent;
-    color: white;
-    font-size: 0.875rem;
-    cursor: pointer;
-    
-    &::-webkit-datetime-edit-ampm-field:focus,
-    &::-webkit-datetime-edit-day-field:focus,
-    &::-webkit-datetime-edit-hour-field:focus,
-    &::-webkit-datetime-edit-millisecond-field:focus,
-    &::-webkit-datetime-edit-minute-field:focus,
-    &::-webkit-datetime-edit-month-field:focus,
-    &::-webkit-datetime-edit-second-field:focus,
-    &::-webkit-datetime-edit-week-field:focus,
-    &::-webkit-datetime-edit-year-field:focus {
-        background-color: utils.$darkAccent;
-        color: utils.$light;
-        outline: none;
-    }
 
-    &:focus {
-        outline: none;
+.datePicker {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 0.5rem;
+    border-radius: 0.5rem;
+
+    &__input {
+        box-sizing: border-box;
+        width: calc(100% - 1rem);
+        margin: 0 auto;
+        padding: 0.75rem;
+        border: none;
+        border-radius: 0.5rem;
+        background-color: utils.$mainAccent;
+        color: white;
+        font-size: 0.875rem;
+        cursor: pointer;
+
+        &::-webkit-datetime-edit-ampm-field:focus,
+        &::-webkit-datetime-edit-day-field:focus,
+        &::-webkit-datetime-edit-hour-field:focus,
+        &::-webkit-datetime-edit-millisecond-field:focus,
+        &::-webkit-datetime-edit-minute-field:focus,
+        &::-webkit-datetime-edit-month-field:focus,
+        &::-webkit-datetime-edit-second-field:focus,
+        &::-webkit-datetime-edit-week-field:focus,
+        &::-webkit-datetime-edit-year-field:focus {
+            background-color: utils.$darkAccent;
+            color: utils.$light;
+            outline: none;
+        }
+
+        &:focus {
+            outline: none;
+        }
     }
 }
-}
+
 input[type="date"]::-webkit-calendar-picker-indicator {
-filter: invert(1);
-transform: scale(1.5);
-cursor: pointer;
+    filter: invert(1);
+    transform: scale(1.5);
+    cursor: pointer;
 }

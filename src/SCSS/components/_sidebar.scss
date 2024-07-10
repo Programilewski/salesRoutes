@@ -1,67 +1,67 @@
 @use "../utils";
-.mainNavigation
-{
+
+.mainNavigation {
     z-index: 1000000;
-    color:utils.$light;
+    color: utils.$light;
     display: flex;
     flex-direction: column;
-    gap:2rem;
+    gap: 2rem;
     box-sizing: border-box;
-    padding:1rem;
+    padding: 1rem;
     background-color: utils.$darkAccent;
     min-width: utils.$navWidth;
     max-width: utils.$navWidth;
     height: 100%;
-    &__logo
-    {
+
+    &__logo {
         width: 100%;
-        margin:1rem 0;
+        margin: 1rem 0;
     }
-    & h3
-    {
+
+    & h3 {
         white-space: nowrap;
     }
-    @media screen and (max-width: 960px)
-    {
-        transition: .1s;
+
+    @media screen and (max-width: 960px) {
+        transition: 0.1s;
         position: absolute;
         transform: scaleX(0);
         width: 0px;
         min-width: 0px;
-        padding:1rem;
+        padding: 1rem;
         transform-origin: left;
-        &--visible
-        {
+
+        &--visible {
             width: utils.$navWidth;
             transform: scaleX(1);
         }
     }
 }
-.controls
-{
+
+.controls {
     min-width: utils.$navWidth;
     background-color: utils.$darkAccent;
 }
-.menu__toggler
-{
+
+.menu__toggler {
     display: none;
-    @media screen and (max-width: 960px){
+
+    @media screen and (max-width: 960px) {
         display: grid;
-        border-radius: .5rem;
+        border-radius: 0.5rem;
         cursor: pointer;
         place-items: center;
         background-color: utils.$darkAccent;
         position: absolute;
-        left:1rem;
-        top:1rem;
+        left: 1rem;
+        top: 1rem;
         z-index: 10000;
         width: 50px;
         height: 50px;
-        transition: .1s;
-        &--moved
-        {
+        transition: 0.1s;
+
+        &--moved {
             left: calc(utils.$navWidth + 1rem);
         }
     }
-
 }
