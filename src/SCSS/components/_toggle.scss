@@ -1,0 +1,27 @@
+@use "../utils";
+.toggle {
+    background-color: #222837;
+    aspect-ratio: 1/1;
+    position: relative;
+    left: 1.5rem;
+    display: grid;
+    place-items: center;
+    z-index: 99999;
+    box-shadow: 6px 0px 7px 0px #00000080;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+
+    &:hover {
+        background-color: #583DFF;
+        transition: 0.25s;
+    }
+
+    @media screen and (max-width: 960px) {
+        & svg {
+            transform: rotate(90deg);
+        }
+        top: 1rem;
+        left: 0;
+    }
+}

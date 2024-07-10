@@ -11,19 +11,20 @@
     }
 
     &__header {
-        border-radius: 0.5rem;
+        border-radius: 0.25rem;
         width: fit-content;
         box-sizing: border-box;
         padding: 0.5rem 0.25rem;
-        border: 1px solid utils.$darkNeutral;
+        border: 1px solid transparent;
+        // border:none;
 
         &::placeholder {
-            font-weight: 700;
+            font-weight: 500;
         }
 
         &:focus {
             border: none;
-            border-radius: 0;
+            border-radius: 0.25rem;
             border: 1px solid utils.$mainAccent;
             box-sizing: border-box;
             outline: none;

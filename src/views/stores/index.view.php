@@ -5,7 +5,7 @@
 <main class="mainContent container">
     <div class="row-flex justify-between align-end content-controls">
 
-        <div class="row-flex align-end m-1 justify-end justify-between-mobile">
+        <div class="row-flex  m-1 justify-end justify-between-mobile">
             <div class="popup">
                 <div class="popup__icon" id="popupFiltersIcon">
 

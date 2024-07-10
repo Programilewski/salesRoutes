@@ -2,7 +2,7 @@ import {Salesman} from "./Salesman.js";
 let routeReference = null;
 let storesReference = null;
 let stopsReference = null;
-const timeline = document.querySelector(".timeline");
+const timeline = document.querySelector("#timeline");
 const datePicker = document.querySelector("#datePickerInput");
 const salesmenListItems = document.querySelectorAll(".radioInputGroup__inputContainer");
 const salesmenList = document.querySelector("#salesmenList");
