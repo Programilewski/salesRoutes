@@ -3,9 +3,10 @@
 
 <?php require __DIR__ . "/../partials/sidebar.php" ?>
 <main class="mainContent container">
-    <div class="row-flex justify-between align-end content-controls">
+    <div class="row-flex mobile-flex-column mobile-align-center mobile-justify-between align-end content-controls">
 
-        <div class="row-flex  m-1 justify-end justify-between-mobile">
+        <a href="stores/create" class="button button--default button--medium button--full-width m-1">Dodaj</a>
+        <div class="row-flex  m-1 justify-end mobile-justify-between">
             <div class="popup">
                 <div class="popup__icon" id="popupFiltersIcon">
 

@@ -2,8 +2,9 @@
 
 .table {
     border-radius: 1rem 1rem 0 0;
-    height: 90%;
+    // height: 90%;
     font-size: 0.875rem;
+    max-height: 85vh;
     color: utils.$dark;
     width: 100%;
     background-color: utils.$light;
@@ -30,7 +31,7 @@
 
         @media screen and (max-width: 960px) {
             align-items: center;
-            margin: 1rem 0.5rem;
+            margin: 1rem 0rem;
             border-radius: 1rem;
         }
     }

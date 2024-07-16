@@ -7,15 +7,15 @@ require __DIR__ . "/partials/sidebar.php";
 
 <div id="map"></div>
 <nav class="mapNavigation" id="mapNavigation">
-    <div class="toggle" id="mapNavigationToggle">
+    <div class="mapNavigation__toggle" id="mapNavigationToggle">
 
         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#909cff">
             <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
         </svg>
     </div>
-    <div class="timeline" id="timeline">
+    <div class="mapNavigation__container" id="timeline">
     </div>
-    <div class="mapControls">
+    <div class="mapNavigation__container mapNavigation__container--dark">
         <div class="datePicker">
             <input class="datePicker__input" type="date" id="datePickerInput" name="date-pick" value="<?= date("Y-m-d") ?>" />
         </div>
