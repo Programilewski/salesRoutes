@@ -3,7 +3,7 @@ require __DIR__ . "/../partials/sidebar.php";
 ?>
 
 <main class="mainContent">
-    <div class="row-grid g-1 overflow-y">
+    <div class="row-grid g-1 overflow-y h-mobile-90">
         <?php
         foreach ($data as $salesman) {
         ?>

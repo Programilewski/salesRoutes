@@ -99,6 +99,12 @@ h3 {
   }
 }
 
+@media screen and (max-width: 960px) {
+  .h-mobile-90 {
+    height: 90%;
+  }
+}
+
 .m-1 {
   margin: 1rem;
 }

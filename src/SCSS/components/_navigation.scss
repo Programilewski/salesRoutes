@@ -45,7 +45,6 @@
 
 .menu__toggler {
     display: none;
-
     @media screen and (max-width: 960px) {
         display: grid;
         border-radius: 0.5rem;
@@ -53,8 +52,8 @@
         place-items: center;
         background-color: utils.$darkAccent;
         position: absolute;
-        left: 1rem;
-        top: 1rem;
+        left: .5rem;
+        top: .5rem;
         z-index: 10000;
         width: 50px;
         height: 50px;

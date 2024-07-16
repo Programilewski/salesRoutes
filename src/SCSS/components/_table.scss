@@ -2,7 +2,7 @@
 
 .table {
     border-radius: 1rem 1rem 0 0;
-    // height: 90%;
+    // gap:1rem;
     font-size: 0.875rem;
     max-height: 85vh;
     color: utils.$dark;
@@ -31,7 +31,7 @@
 
         @media screen and (max-width: 960px) {
             align-items: center;
-            margin: 1rem 0rem;
+            margin-bottom: 1rem;
             border-radius: 1rem;
         }
     }
@@ -123,7 +123,8 @@
         overflow-y: scroll;
 
         @media screen and (max-width: 960px) {
-            height: 800px;
+            height: 85%;
+            margin-top: 1rem;
         }
 
         &::-webkit-scrollbar {

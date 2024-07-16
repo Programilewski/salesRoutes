@@ -5,7 +5,7 @@
 <main class="mainContent container">
     <div class="row-flex mobile-flex-column mobile-align-center mobile-justify-between align-end content-controls">
 
-        <a href="stores/create" class="button button--default button--medium button--full-width m-1">Dodaj</a>
+        <a href="stores/create" class="button button--default button--medium button--mobile-absolute-bottom mv-1">Dodaj Salon</a>
         <div class="row-flex  m-1 justify-end mobile-justify-between">
             <div class="popup">
                 <div class="popup__icon" id="popupFiltersIcon">
