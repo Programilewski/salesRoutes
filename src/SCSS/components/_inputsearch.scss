@@ -11,12 +11,17 @@
     }
 
     &__header {
+        font-size: .875rem;
+        outline: none;
         border-radius: 0.25rem;
-        width: fit-content;
+        width: 7vw;
         box-sizing: border-box;
         padding: 0.5rem 0.25rem;
         border: 1px solid transparent;
         // border:none;
+        @media screen and (max-width: 960px) {
+            width: 100%;
+        }
 
         &::placeholder {
             font-weight: 500;

@@ -1,6 +1,7 @@
 @use "../utils";
 
 .card {
+    min-height: 7rem;
     display: grid;
     grid-template-columns: 1fr 8fr 1fr;
     align-items: center;

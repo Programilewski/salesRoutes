@@ -1,303 +1,172 @@
 @use "variables";
 
 .container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .g-1 {
-    gap: 1rem;
+  gap: 1rem;
 }
 
 .row-grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-column: span 12;
-    width: 100%;
-
-    @media screen and (max-width: 960px) {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    @media screen and (min-width: 960px) and (max-width: 1300px) {
-        grid-template-columns: repeat(8, 1fr);
-    }
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column: span 12;
+  width: 100%;
+  @media screen and (max-width: 960px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media screen and (min-width: 960px) and (max-width: 1300px) {
+    grid-template-columns: repeat(8, 1fr);
+  }
 }
-.overflow-y{
-    overflow-y: auto;
+
+.overflow-y {
+  overflow-y: auto;
 }
+
 .align-start {
-    align-items: flex-start;
+  align-items: flex-start;
 }
 
 .align-center {
-    align-items: center;
+  align-items: center;
 }
 
 .align-end {
-    align-items: flex-end;
+  align-items: flex-end;
 }
 
 .justify-end {
-    justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 .justify-between {
-    justify-content: space-between;
-
-    @media screen and (max-width: 960px) {
-        justify-content: space-between;
-    }
+  justify-content: space-between;
 }
 
 .row-flex {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
 .column-flex {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
-.mobile
-{
-    @media screen and (max-width: 960px) {
-        &-flex-column
-        {
-            flex-direction: column;
-        }
-        &-justify-center
-        {
-            justify-content: center;
-        }
-        &-justify-between
-        {
-            justify-content: space-between;
-        }
-        &-align-center
-        {
-            align-items: center;
-        }
 
+.mobile {
+  @media screen and (max-width: 960px) {
+    &-flex-column {
+      flex-direction: column;
     }
-}
-.h-mobile-90
-{
-    @media screen and (max-width: 960px) {
-        height: 90%;
+    &-justify-center {
+      justify-content: center;
     }
-}
-.m-1 {
-    margin: 1rem;
-}
-
-.m-2 {
-    margin: 2rem;
-}
-
-.m-3 {
-    margin: 3rem;
+    &-justify-between {
+      justify-content: space-between;
+    }
+    &-align-center {
+      align-items: center;
+    }
+  }
 }
 
-.m-4 {
-    margin: 4rem;
+.h-mobile-90 {
+  @media screen and (max-width: 960px) {
+    height: 90%;
+  }
 }
 
-.m-5 {
-    margin: 5rem;
+// Responsive margin classes
+@for $i from 1 through 5 {
+  .m-#{$i} {
+    margin: #{$i}rem;
+    @media screen and (max-width: 960px) {
+      margin: #{$i * 0.75}rem;
+    }
+  }
+
+  .mv-#{$i} {
+    margin-top: #{$i}rem;
+    margin-bottom: #{$i}rem;
+    @media screen and (max-width: 960px) {
+      margin-top: #{$i * 0.75}rem;
+      margin-bottom: #{$i * 0.75}rem;
+    }
+  }
+
+  .mh-#{$i} {
+    margin-left: #{$i}rem;
+    margin-right: #{$i}rem;
+    @media screen and (max-width: 960px) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  .mh-mobile-#{$i} {
+    margin-left: 0;
+    margin-right: 0;
+    @media screen and (max-width: 960px) {
+      margin-left: #{$i}rem;
+      margin-right: #{$i}rem;
+    }
+  }
 }
 
-.mv-1 {
-    margin: 1rem 0;
-}
+// Responsive padding classes
+@for $i from 1 through 5 {
+  .p-#{$i} {
+    padding: #{$i}rem;
+    @media screen and (max-width: 960px) {
+      padding: #{$i * 0.75}rem;
+    }
+  }
 
-.mv-2 {
-    margin: 2rem 0;
-}
+  .pv-#{$i} {
+    padding-top: #{$i}rem;
+    padding-bottom: #{$i}rem;
+    @media screen and (max-width: 960px) {
+      padding-top: #{$i * 0.75}rem;
+      padding-bottom: #{$i * 0.75}rem;
+    }
+  }
 
-.mv-3 {
-    margin: 3rem 0;
-}
-
-.mv-4 {
-    margin: 4rem 0;
-}
-
-.mv-5 {
-    margin: 5rem 0;
-}
-
-.mh-1 {
-    margin: 0 1rem;
-}
-
-.mh-2 {
-    margin: 0 2rem;
-}
-
-.mh-3 {
-    margin: 0 3rem;
-}
-
-.mh-4 {
-    margin: 0 4rem;
-}
-
-.mh-5 {
-    margin: 0 5rem;
-}
-
-.p-1 {
-    padding: 1rem;
-}
-
-.p-2 {
-    padding: 2rem;
-}
-
-.p-3 {
-    padding: 3rem;
-}
-
-.p-4 {
-    padding: 4rem;
-}
-
-.p-5 {
-    padding: 5rem;
-}
-
-.ph-1 {
-    padding: 0 1rem;
-}
-
-.ph-2 {
-    padding: 0 2rem;
-}
-
-.ph-3 {
-    padding: 0 3rem;
-}
-
-.ph-4 {
-    padding: 0 4rem;
-}
-
-.ph-5 {
-    padding: 0 5rem;
-}
-
-.pv-1 {
-    padding: 1rem 0;
-}
-
-.pv-2 {
-    padding: 2rem 0;
-}
-
-.pv-3 {
-    padding: 3rem 0;
-}
-
-.pv-4 {
-    padding: 4rem 0;
-}
-
-.pv-5 {
-    padding: 5rem 0;
+  .ph-#{$i} {
+    padding-left: #{$i}rem;
+    padding-right: #{$i}rem;
+    @media screen and (max-width: 960px) {
+      padding-left: #{$i * 0.75}rem;
+      padding-right: #{$i * 0.75}rem;
+    }
+  }
 }
 
 .row--end {
-    justify-content: end;
+  justify-content: end;
 }
 
-.col-1 {
-    grid-column: span 1;
-}
-
-.col-2 {
-    grid-column: span 2;
-}
-
-.col-3 {
-    grid-column: span 3;
-}
-
-.col-4 {
-    grid-column: span 4;
-}
-
-.col-5 {
-    grid-column: span 5;
-}
-
-.col-6 {
-    grid-column: span 6;
-}
-
-.col-7 {
-    grid-column: span 7;
-}
-
-.col-8 {
-    grid-column: span 8;
-}
-
-.col-9 {
-    grid-column: span 9;
-}
-
-.col-10 {
-    grid-column: span 10;
-}
-
-.col-11 {
-    grid-column: span 11;
-}
-
-.col-12 {
-    grid-column: span 12;
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    grid-column: span #{$i};
+  }
 }
 
 @media screen and (max-width: 960px) {
-    .col-sm-1 {
-        grid-column: span 1;
+  @for $i from 1 through 4 {
+    .col-sm-#{$i} {
+      grid-column: span #{$i};
     }
-    .col-sm-2 {
-        grid-column: span 2;
-    }
-    .col-sm-3 {
-        grid-column: span 3;
-    }
-    .col-sm-4 {
-        grid-column: span 4;
-    }
+  }
 }
 
 @media screen and (min-width: 960px) and (max-width: 1200px) {
-    .col-md-1 {
-        grid-column: span 1;
+  @for $i from 1 through 8 {
+    .col-md-#{$i} {
+      grid-column: span #{$i};
     }
-    .col-md-2 {
-        grid-column: span 2;
-    }
-    .col-md-3 {
-        grid-column: span 3;
-    }
-    .col-md-4 {
-        grid-column: span 4;
-    }
-    .col-md-5 {
-        grid-column: span 5;
-    }
-    .col-md-6 {
-        grid-column: span 6;
-    }
-    .col-md-7 {
-        grid-column: span 7;
-    }
-    .col-md-8 {
-        grid-column: span 8;
-    }
+  }
 }

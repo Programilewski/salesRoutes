@@ -18,7 +18,7 @@ export class Salesman{
     {
         return new Promise((resolve,reject)=>{
             const storesData = [];
-            this.fetchData(`/api/stores?salesman_id=${this.code}`)
+            this.fetchData(`/api/stores?salesman_code=${this.code}`)
             .then((stores)=>{
                 stores.forEach((store)=>{
                     const storeIconOptionss = {

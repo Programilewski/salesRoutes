@@ -47,10 +47,11 @@
         box-sizing: border-box;
         color: utils.$dark;
         font-size: 0.875rem;
-
-        &::selection {
+        &--light-background {
             background-color: utils.$light;
-            color: utils.$dark;
+        }
+        &::selection {
+            background-color: utils.$searedAccent;
         }
     }
 

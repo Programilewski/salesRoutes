@@ -59,17 +59,17 @@ body {
     }
 }
 
-select,
-input[type="search"] {
-    padding: .5rem 0.25rem;
-    width: fit-content;
-    color: rgb(0, 0, 0);
-    border: none;
-    font-family: "Raleway", sans-serif;
-    border: 1px solid utils.$searedNeutral;
-    font-size: 14px;
-    font-weight: 700;
-}
+// select,
+// input[type="search"] {
+//     padding: .5rem 0.25rem;
+//     width: fit-content;
+//     color: rgb(0, 0, 0);
+//     border: none;
+//     font-family: "Raleway", sans-serif;
+//     border: 1px solid utils.$searedNeutral;
+//     font-size: 14px;
+//     font-weight: 700;
+// }
 
 #map {
     height: 100vh;

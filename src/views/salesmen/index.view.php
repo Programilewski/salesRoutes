@@ -40,7 +40,7 @@ require __DIR__ . "/../partials/sidebar.php";
                         </svg>
                     </a>
                     <form class="formIcon" action="" method="POST">
-                        <input type="hidden" name="id" value="<?= $store["store_id"] ?>">
+                        <input type="hidden" name="salesman_id" value="<?= $salesman["salesman_id"] ?>">
                         <input type="hidden" name="_method" value="DELETE">
                         <button>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" height="24" viewBox="0 -960 960 960" width="24">

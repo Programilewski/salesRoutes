@@ -6,7 +6,7 @@ use Core\Database;
 
 $db = new Database($config);
 $base_query = "SELECT * FROM stores";
-$allowed_filters = ["salesman_id", "city"];
+$allowed_filters = ["salesman_code", "city"];
 $base_query = $base_query;
 $filters_amount = 0;
 $filters_query = "";

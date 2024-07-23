@@ -18,12 +18,6 @@
 <body>
     <nav class="mainNavigation">
         <div class="controls">
-            <?php
-            partials("heading.php", [
-                "title" => "Panel",
-                "icon" => "dashboard.svg"
-            ]);
-            ?>
             <div class="datePicker">
                 <input class="datePicker__input" type="date" id="datePickerInput" name="date-pick" value="<?= date("Y-m-d") ?>" />
             </div>
