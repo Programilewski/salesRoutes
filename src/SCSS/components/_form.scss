@@ -6,7 +6,13 @@
     align-items: flex-start;
     gap: 1rem;
     color: utils.$dark;
-
+    &__error
+    {
+        color: utils.$fatal;
+        font-size: 0.75rem;
+        margin-top: 0.25rem;
+        font-weight: 700;
+    }
     &--w25 {
         width: 25%;
         max-width: 25%;
@@ -64,4 +70,5 @@
     &__inputContainer {
         width: 100%;
     }
+
 }

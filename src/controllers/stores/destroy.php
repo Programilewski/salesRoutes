@@ -1,10 +1,9 @@
 <?php
 
-use Core\Database;
 
-// dd("Hello");
-$config = require base_path("src/config.php");
-$db = new Database($config);
+use Core\App;
+
+$db = App::resolve(Core\Database::class);
 
 $db->query("DELETE FROM stores WHERE store_id = :id", [
     // "id" => $_POST["id"]

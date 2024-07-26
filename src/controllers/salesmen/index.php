@@ -1,12 +1,10 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 
-use Core\Database;
-use Core\Validator;
 
-$config = require base_path("src/config.php");
+use Core\App;
 
-$db = new Database($config);
+$db = App::resolve(Core\Database::class);
 
 $data  = $db->query("SELECT * FROM salesmen")->fetchAllDataAssoc();
 view("salesmen/index.view.php", [

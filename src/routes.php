@@ -15,13 +15,14 @@ $router->get("/api/stopIcon", "controllers/API/stopIcon.php");
 
 // Store operations
 $router->get("/stores/new", "controllers/stores/show.php");
-$router->get("/stores/edit", "controllers/stores/show.php");
-$router->post("/stores/create", "controllers/stores/create.php");
+$router->get("/stores/edit", "controllers/stores/edit.php");
+$router->post("/stores", "controllers/stores/create.php");
 $router->delete("/stores", "controllers/stores/destroy.php");
+$router->patch("/stores", "controllers/stores/update.php");
 
 // Salesman operations
 $router->get("/salesmen/new", "controllers/salesmen/show.php");
-$router->get("/salesmen/edit", "controllers/salesmen/show.php");
+$router->get("/salesmen/edit", "controllers/salesmen/edit.php");
 $router->post("/salesmen", "controllers/salesmen/create.php");
 $router->delete("/salesmen", "controllers/salesmen/destroy.php");
 $router->patch("/salesmen", "controllers/salesmen/update.php");

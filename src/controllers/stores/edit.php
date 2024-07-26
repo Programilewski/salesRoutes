@@ -13,4 +13,4 @@ if ($store_id) {
 }
 $allSalesmen = $db->query("SELECT name,surname, salesman_code FROM salesmen")->fetchAllDataAssoc();
 
-require __DIR__ . "/../../views/stores/show.view.php";
+require __DIR__ . "/../../views/stores/edit.view.php";

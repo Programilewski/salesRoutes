@@ -1,7 +1,5 @@
 <?php
 
-use Core\Database;
-
 use Core\App;
 
 $db = App::resolve(Core\Database::class);
@@ -13,4 +11,4 @@ if ($salesman_id) {
     $salesmanData = $salesmanQuery->fetchAllDataAssoc();
 }
 // dd($salesmanQuery);
-require __DIR__ . "/../../views/salesmen/show.view.php";
+require __DIR__ . "/../../views/salesmen/edit.view.php";

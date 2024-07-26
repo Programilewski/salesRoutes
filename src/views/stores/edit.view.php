@@ -3,6 +3,8 @@ require __DIR__ . "/../partials/sidebar.php";
 ?>
 <main class="mainContent row-grid container p-3 d-flex">
     <form class="col-6 form form--black" method="POST" action="/stores">
+        <input type="hidden" name="_method" value="PATCH">
+        <input type="hidden" name="store_id" value="<?= $storeData[0]["store_id"] ?? "" ?>">
         <div class="row form--w100 d-flex row-flex g-1">
             <div class="column-flex form__inputContainer align-start">
                 <label class="form-label " for="name">Nazwa</label>

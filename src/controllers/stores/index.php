@@ -1,10 +1,9 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-$config = require base_path("src/config.php");
 
-use Core\Database;
+use Core\App;
 
-$db = new Database($config);
+$db = App::resolve(Core\Database::class);
 $base_query = "SELECT * FROM stores";
 $allowed_filters = ["salesman_code", "city"];
 $base_query = $base_query;

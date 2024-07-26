@@ -39,3 +39,9 @@ function partials($name, $attributes = [])
     extract($attributes);
     require base_path("src/views/partials/" . $name);
 }
+function displayErrors($errors)
+{
+    foreach ($errors as $error) {
+        echo "<p class='form__error'>" . $error . "</p>";
+    }
+}

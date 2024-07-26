@@ -1,9 +1,8 @@
 <?php
 
-use Core\Database;
+use Core\App;
 
-$config = require base_path("src/config.php");
-$db = new Database($config);
+$db = App::resolve(Core\Database::class);
 $data  = $db->query("SELECT * FROM salesmen")->fetchAllDataAssoc();
 
 view("homepage.view.php", [

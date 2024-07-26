@@ -10,6 +10,7 @@ spl_autoload_register(function ($class) {
     $class = str_replace("\\", DIRECTORY_SEPARATOR, $class);
     require base_path("src/{$class}.php");
 });
+require base_path("src/bootstrap.php");
 $requested_uri = parse_url($_SERVER["REQUEST_URI"])["path"];
 $router = new Router();
 $routes = require base_path("src/routes.php");

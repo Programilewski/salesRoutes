@@ -19,39 +19,32 @@ if (!Validator::stringCount($_POST["name"], 1, 40)) {
     $errors["name"][] = "Nazwa musi mieć od 1 do 40 znaków";
 }
 
-// dd($errors);
+
 if (!empty($errors)) {
-    require __DIR__ . "/../../views/stores/show.view.php";
+    $store_id = $_POST["store_id"] ?? null;
+    if ($store_id) {
+        $storeQuery = $db->query("SELECT * FROM stores WHERE store_id = $store_id");
+        $storeData = $storeQuery->fetchAllDataAssoc();
+    }
+    $allSalesmen = $db->query("SELECT name,surname, salesman_code FROM salesmen")->fetchAllDataAssoc();
+    require __DIR__ . "/../../views/stores/edit.view.php";
     exit();
 }
 
 
 
-$db->query("INSERT INTO stores (
-    store_id,
-    name,
-    voivodeship,
-    city,
-    zip_code,
-    street_name,
-    street_number,
-    apartment_number,
-    latitude,
-    longitude,
-    salesman_code
-) VALUES(
-    NULL,
-    :name,
-    :voivodeship,
-    :city,
-    :zip_code,
-    :street_name,
-    :street_number,
-    :apartment_number,
-    :latitude,
-    :longitude,
-    :salesman_code
-)", [
+
+$db->query("UPDATE stores SET 
+    name = :name,
+    voivodeship = :voivodeship,
+    city = :city,
+    zip_code = :zip_code,
+    street_name = :street_name,
+    street_number = :street_number,
+    apartment_number = :apartment_number,
+    latitude = :latitude,
+    longitude = :longitude,
+    salesman_code = :salesman_code WHERE store_id = :store_id", [
     [
         "key" => ":name",
         "value" => $_POST["name"],
@@ -100,6 +93,11 @@ $db->query("INSERT INTO stores (
     [
         "key" => ":salesman_code",
         "value" => $_POST["salesman_code"],
+        "type" => PDO::PARAM_STR
+    ],
+    [
+        "key" => ":store_id",
+        "value" => $_POST["store_id"],
         "type" => PDO::PARAM_STR
     ]
 ]);

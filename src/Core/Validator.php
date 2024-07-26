@@ -11,7 +11,7 @@ class Validator
     }
     public static function stringCount($value, $min = 1, $max = INF)
     {
-        $value = trim($value);
+        $value = strlen(trim($value));
         return $value >= $min && $value <= $max;
     }
     public static function isNumeric($value)

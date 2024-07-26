@@ -1,10 +1,10 @@
 <?php
 
 use Core\Database;
+use Core\App;
 
-// echo "XD";
-$config = require base_path("src/config.php");
-$db = new Database($config);
+$db = App::resolve(Core\Database::class);
+
 $db->query("DELETE  FROM salesmen WHERE salesman_id = :id", [
     [
         'key' => 'id',

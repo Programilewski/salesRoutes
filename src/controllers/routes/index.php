@@ -1,10 +1,9 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-$config = require base_path("src/config.php");
 
-use Core\Database;
+use Core\App;
 
-$db = new Database($config);
+$db = App::resolve(Core\Database::class);
 
 $total_count = $db->query("SELECT COUNT(*) FROM routes")->fetchAllDataAssoc()[0]["COUNT(*)"];
 $page_number = isset($_GET["page"]) && is_numeric($_GET["page"]) ? $_GET["page"] : 1;
