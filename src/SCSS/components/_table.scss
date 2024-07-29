@@ -74,6 +74,7 @@
             & a {
                 display: flex;
                 align-items: center;
+                white-space: nowrap;
             }
 
             &:last-of-type {

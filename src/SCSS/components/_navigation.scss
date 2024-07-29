@@ -1,7 +1,7 @@
 @use "../utils";
 
 .mainNavigation {
-    z-index: 1000000;
+    z-index: 100000;
     color: utils.$light;
     display: flex;
     flex-direction: column;
@@ -12,10 +12,16 @@
     min-width: utils.$navWidth;
     max-width: utils.$navWidth;
     height: 100%;
-
+    @media screen and (max-width: 960px) {
+        font-size: 1.5rem;
+        max-width: 100%;
+    }
     &__logo {
-        width: 100%;
-        margin: 1rem 0;
+        width: 75%;
+        margin: 1rem auto;
+        @media screen and (max-width: 960px) {
+            padding-top:2rem;
+        }
     }
 
     & h3 {
@@ -32,7 +38,8 @@
         transform-origin: left;
 
         &--visible {
-            width: utils.$navWidth;
+            // width: utils.$navWidth;
+            width: 100vw;
             transform: scaleX(1);
         }
     }
@@ -43,24 +50,64 @@
     background-color: utils.$darkAccent;
 }
 
-.menu__toggler {
-    display: none;
-    @media screen and (max-width: 960px) {
-        display: grid;
-        border-radius: 0.5rem;
-        cursor: pointer;
-        place-items: center;
-        background-color: utils.$darkAccent;
-        position: absolute;
-        left: .5rem;
-        top: .5rem;
-        z-index: 10000;
-        width: 50px;
-        height: 50px;
-        transition: 0.1s;
+// .menu__toggler {
+//     display: none;
+//     @media screen and (max-width: 960px) {
+//         display: grid;
+//         border-radius: 0.5rem;
+//         cursor: pointer;
+//         place-items: center;
+//         background-color: utils.$darkAccent;
+//         position: absolute;
+//         left: .5rem;
+//         top: .5rem;
+//         z-index: 10000;
+//         width: 50px;
+//         height: 50px;
+//         transition: 0.1s;
 
-        &--moved {
-            left: calc(utils.$navWidth + 1rem);
-        }
+//         &--moved {
+//             left: calc(utils.$navWidth + 1rem);
+//         }
+//     }
+// }
+.menu__toggler {
+    position: absolute;
+    // background-color: utils.$darkAccent;
+    padding:.5rem;
+    // border-radius: .5rem;
+    left: .5rem;
+    top: 1rem;
+    z-index: 1000000;
+    width: 30px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    @media screen and (min-width: 960px) {
+        display: none;
     }
+    & div
+    {
+        z-index: 9000000;
+        background-color: utils.$dark;
+        height: 4px;
+        border-radius: 2px;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    &--open div{
+        background-color: utils.$light;
+    }
+    &--open div:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      
+    &--open div:nth-child(2) {
+        opacity: 0;
+      }
+      
+    &--open div:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
 }

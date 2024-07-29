@@ -27,7 +27,8 @@ if(mapNavigationToggle)
 
 menuToggler.addEventListener("click",()=>{
     mainNavigation.classList.toggle("mainNavigation--visible");
-    menuToggler.classList.toggle("menu__toggler--moved");
+    // menuToggler.classList.toggle("menu__toggler--moved");
+    menuToggler.classList.toggle("menu__toggler--open");
 })
 
 popupFiltersIcon.addEventListener("click",()=>{

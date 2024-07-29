@@ -59,6 +59,9 @@
 
 .mobile {
   @media screen and (max-width: 960px) {
+    &-flex-row {
+      flex-direction: row;
+    }
     &-flex-column {
       flex-direction: column;
     }
@@ -134,8 +137,23 @@
       padding-bottom: #{$i * 0.75}rem;
     }
   }
-
+  .pv-mobile-#{$i} {
+    padding-top: #{$i}rem;
+    padding-bottom: #{$i}rem;
+    @media screen and (max-width: 960px) {
+      padding-top: #{$i * 0.75}rem;
+      padding-bottom: #{$i * 0.75}rem;
+    }
+  }
   .ph-#{$i} {
+    padding-left: #{$i}rem;
+    padding-right: #{$i}rem;
+    @media screen and (max-width: 960px) {
+      padding-left: #{$i * 0.75}rem;
+      padding-right: #{$i * 0.75}rem;
+    }
+  }  
+  .ph-mobile-#{$i} {
     padding-left: #{$i}rem;
     padding-right: #{$i}rem;
     @media screen and (max-width: 960px) {

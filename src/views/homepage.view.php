@@ -13,9 +13,9 @@ require __DIR__ . "/partials/sidebar.php";
             <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
         </svg>
     </div>
-    <div class="mapNavigation__container" id="timeline">
+    <div class="mapNavigation__container mobile-flex-row column-flex" id="timeline">
     </div>
-    <div class="mapNavigation__container mapNavigation__container--dark">
+    <div class="mapNavigation__container mapNavigation__container--dark column-flex p-1">
         <div class="datePicker">
             <input class="datePicker__input" type="date" id="datePickerInput" name="date-pick" value="<?= date("Y-m-d") ?>" />
         </div>
