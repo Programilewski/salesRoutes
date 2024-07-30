@@ -1,6 +1,9 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 
+$_SESSION["name"] = "Gagagtek";
+
+
 use Core\App;
 
 $db = App::resolve(Core\Database::class);

@@ -1,7 +1,6 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 
-
 use Core\App;
 
 $db = App::resolve(Core\Database::class);

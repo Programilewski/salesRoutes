@@ -694,6 +694,9 @@ h3 {
   padding: 1rem 2rem;
   font-size: 1.125rem;
 }
+.button--shadow {
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
 .button--default {
   background-color: #909CFF;
 }
@@ -1137,6 +1140,12 @@ input[type=date]::-webkit-calendar-picker-indicator {
   gap: 1rem;
   color: #000000;
 }
+.form--light-background {
+  background-color: #909CFF;
+}
+.form--rounded {
+  border-radius: 1rem;
+}
 .form__error {
   color: #FF2D2D;
   font-size: 0.75rem;
@@ -1187,6 +1196,9 @@ input[type=date]::-webkit-calendar-picker-indicator {
   margin-bottom: 0.5rem;
   font-weight: 700;
   font-size: 0.875rem;
+}
+.form-label--white-font {
+  color: #ffffff;
 }
 .form__inputContainer {
   width: 100%;

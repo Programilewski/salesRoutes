@@ -5,6 +5,8 @@ $router->get("/", "controllers/index.php");
 $router->get("/stores", "controllers/stores/index.php");
 $router->get("/salesmen", "controllers/salesmen/index.php");
 $router->get("/routes", "controllers/routes/index.php");
+$router->get("/register", "controllers/register.php");
+$router->get("/login", "controllers/login.php");
 
 // API endpoints
 $router->get("/api/stores", "controllers/API/stores.php");
