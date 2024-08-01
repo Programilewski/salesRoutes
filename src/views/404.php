@@ -17,15 +17,12 @@
 
 <body>
     <nav class="mainNavigation">
-        <div class="controls">
-            <div class="datePicker">
-                <input class="datePicker__input" type="date" id="datePickerInput" name="date-pick" value="<?= date("Y-m-d") ?>" />
-            </div>
-        </div>
         </div>
         <?php require "partials/links.php" ?>
     </nav>
-    <main class="mainContent"></main>
+    <main class="mainContent">
+        <h2>404 not found</h2>
+    </main>
 
 
     <!-- Make sure you put this AFTER Leaflet's CSS -->

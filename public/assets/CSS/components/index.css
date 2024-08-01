@@ -1141,7 +1141,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   color: #000000;
 }
 .form--light-background {
-  background-color: #909CFF;
+  background-color: #DFE6F9;
 }
 .form--rounded {
   border-radius: 1rem;
@@ -1167,6 +1167,30 @@ input[type=date]::-webkit-calendar-picker-indicator {
 .form--w100 {
   width: 100%;
   max-width: 100%;
+}
+@media screen and (max-width: 960px) {
+  .form--mobile--w100 {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 960px) {
+  .form--mobile--w75 {
+    width: 75%;
+    max-width: 75%;
+  }
+}
+@media screen and (max-width: 960px) {
+  .form--mobile--w50 {
+    width: 50%;
+    max-width: 50%;
+  }
+}
+@media screen and (max-width: 960px) {
+  .form--mobile--w25 {
+    width: 25%;
+    max-width: 25%;
+  }
 }
 .form--m5 {
   margin: 5rem;

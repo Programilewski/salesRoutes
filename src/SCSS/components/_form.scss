@@ -9,7 +9,7 @@
 
     &--light-background
     {
-        background-color: utils.$lightAccent;
+        background-color: utils.$defaultBackground;
     }
     &--rounded
     {
@@ -41,8 +41,35 @@
         width: 100%;
         max-width: 100%;
     }
-
-    &--m5 {
+    &--mobile--w100
+    {
+        @media screen and (max-width: 960px) {
+            width: 100%;
+            max-width: 100%;
+        }
+    }    
+    &--mobile--w75
+    {
+        @media screen and (max-width: 960px) {
+            width: 75%;
+            max-width: 75%;
+        }
+    }
+    &--mobile--w50
+    {
+        @media screen and (max-width: 960px) {
+            width: 50%;
+            max-width: 50%;
+        }
+    }
+    &--mobile--w25
+    {
+        @media screen and (max-width: 960px) {
+            width: 25%;
+            max-width: 25%;
+        }
+    }
+    &--m5 { 
         margin: 5rem;
     }
 

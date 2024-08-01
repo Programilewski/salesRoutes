@@ -45,3 +45,20 @@ function displayErrors($errors)
         echo "<p class='form__error'>" . $error . "</p>";
     }
 }
+function login($user)
+{
+    $_SESSION["user"] = [
+        "email" => $user["email"]
+    ];
+    header("location:/");
+    exit();
+    session_regenerate_id(true);
+}
+function logout()
+{
+    $_SESSION = [];
+    session_destroy();
+
+    $params = session_get_cookie_params();
+    setcookie("PHPSESSID", "", time() - 3600, $params["path"], $params["domain"]);
+}

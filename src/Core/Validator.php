@@ -22,7 +22,8 @@ class Validator
     {
         return (int)$value >= 0;
     }
-    public static function isHexColor($value)
+    public static function email($value)
     {
+        return filter_var($value, FILTER_VALIDATE_EMAIL);
     }
 }

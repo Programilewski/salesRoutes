@@ -1,13 +1,22 @@
-<nav class="mainNavigation" id="mainNavigation">
-    <img class="mainNavigation__logo" src="/assets/media/Logo_sales_routes.png" alt="">
-    <?php
-    require __DIR__ . "/../partials/links.php"; ?>
+<nav class="mainNavigation justify-between" id="mainNavigation">
+    <div class="group">
+        <img class="mainNavigation__logo" src="/assets/media/Logo_sales_routes.png" alt="">
+        <?php
+        require __DIR__ . "/../partials/links.php"; ?>
+    </div>
+    <div class="group">
+        <?php if ($_SESSION["user"] ?? false) : ?>
+            <p> <?= $_SESSION["user"]["email"] ?> </p>
+            <form action="/sessions" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden">
+                <button class="button button--default button--medium button--shadow" type="submit">Wyloguj się</button>
+            </form>
+        <?php endif; ?>
+    </div>
 </nav>
 <div class="menu__toggler" id="menuToggler">
     <div></div>
     <div></div>
     <div></div>
-    <!-- <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
-        <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
-    </svg> -->
 </div>
